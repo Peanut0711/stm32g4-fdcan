@@ -17,11 +17,11 @@ class LogWidget(QWidget):
     if (parent is not None):
       self.log = parent      
 
-    self.pattern_log = re.compile('\[+.{8,16}\]+')
-    self.pattern_color = re.compile('\[+.{1,2}m+')
-    self.pattern_up = re.compile('\[+.{1,3}A+')
-    self.pattern_down = re.compile('\[+.{1,3}B+')
-    self.pattern_cli = re.compile('cli# ')
+    self.pattern_log = re.compile(r'\[+.{8,16}\]+')
+    self.pattern_color = re.compile(r'\[+.{1,2}m+')
+    self.pattern_up = re.compile(r'\[+.{1,3}A+')
+    self.pattern_down = re.compile(r'\[+.{1,3}B+')
+    self.pattern_cli = re.compile(r'cli# ')
 
     self.line_max = 100
     self.line_index = 0

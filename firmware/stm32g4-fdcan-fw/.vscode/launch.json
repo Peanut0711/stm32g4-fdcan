@@ -7,32 +7,53 @@
     {
       "cwd": "${workspaceRoot}",
       "executable": "./build/stm32g4-fdcan-fw.elf",
-      "name": "Debug with PICO",
+      "name": "Debug with STLINK",
       "request": "launch",
       "type": "cortex-debug",
-      "servertype": "openocd",
-      "configFiles": [
-        "interface/cmsis-dap.cfg",
-        "target/stm32g4x.cfg"
-      ],
-      "searchDir": [],
-      "runToEntryPoint": "main",
-      "showDevDebugOutput": "none"
+      "showDevDebugOutput": "none",      
+      "servertype": "stlink",
+      "osx": {
+        "serverpath": "/opt/ST/STM32CubeCLT_1.18.0/STLink-gdb-server/bin/ST-LINK_gdbserver",
+        "stm32cubeprogrammer": "/opt/ST/STM32CubeCLT_1.18.0/STM32CubeProgrammer/bin",
+        "svdFile": "/opt/ST/STM32CubeCLT_1.18.0/STMicroelectronics_CMSIS_SVD/STM32G431.svd"
+      },       
+      "windows": {
+        "gdbPath": "C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe",
+        "serverpath": "C:/ST/STM32CubeCLT_1.18.0/STLink-gdb-server/bin/ST-LINK_gdbserver.exe",
+        "stm32cubeprogrammer": "C:/ST/STM32CubeCLT_1.18.0/STM32CubeProgrammer/bin",
+        "svdFile": "C:/ST/STM32CubeCLT_1.18.0/STMicroelectronics_CMSIS_SVD/STM32G431.svd"
+      },       
+      "runToEntryPoint": "main",  
     },
-    {
+
+{
       "cwd": "${workspaceRoot}",
       "executable": "./build/stm32g4-fdcan-fw.elf",
-      "name": "Debug with OpenOCD",
+      "name": "Debug with STLINK, BOOT",
       "request": "launch",
       "type": "cortex-debug",
-      "servertype": "openocd",
-      "configFiles": [
-        "interface/stlink.cfg",
-        "target/stm32g4x.cfg"
+      "showDevDebugOutput": "none",      
+      "servertype": "stlink",
+      "osx": {
+        "serverpath": "/opt/ST/STM32CubeCLT_1.16.0/STLink-gdb-server/bin/ST-LINK_gdbserver",
+        "stm32cubeprogrammer": "/opt/ST/STM32CubeCLT_1.16.0/STM32CubeProgrammer/bin",
+        "svdFile": "/opt/ST/STM32CubeCLT_1.16.0/STMicroelectronics_CMSIS_SVD/STM32G431.svd"
+      },  
+      "windows": {
+        "serverpath": "C:/ST/STM32CubeCLT_1.18.0/STLink-gdb-server/bin/ST-LINK_gdbserver.exe",
+        "stm32cubeprogrammer": "C:/ST/STM32CubeCLT_1.18.0/STM32CubeProgrammer/bin",
+        "svdFile": "C:/ST/STM32CubeCLT_1.18.0/STMicroelectronics_CMSIS_SVD/STM32G431.svd"
+      },      
+      "runToEntryPoint": "main",        
+      "overrideRestartCommands": [
+        "load"
       ],
-      "searchDir": [],
-      "runToEntryPoint": "main",
-      "showDevDebugOutput": "none"
-    },
+      "postStartSessionCommands": [
+        "monitor reset"
+      ],
+      "overrideLaunchCommands": [       
+        "load",
+      ],        
+    },          
   ]
 }

@@ -41,6 +41,8 @@ bool cliThreadEvent(event_t *p_event)
 
 bool cliThreadUpdate(void)
 {  
+  // return true; // jangho 250826 - cli 비활성화
+
   #ifdef _USE_HW_CLI
   uint8_t cli_ch;
 
@@ -53,7 +55,7 @@ bool cliThreadUpdate(void)
       {
         if (usbIsOpen() && usbGetType() == USB_CON_CLI)
         {
-          cli_ch = HW_UART_CH_USB;
+          cli_ch = _DEF_UART1;
         }
         else
         {
@@ -75,7 +77,6 @@ bool cliThreadUpdate(void)
       }
       break;
     
-    case MODE_USB_TO_RS485:
     case MODE_USB_TO_CAN:
       if (cliGetPort() != HW_UART_CH_DEBUG)
       {

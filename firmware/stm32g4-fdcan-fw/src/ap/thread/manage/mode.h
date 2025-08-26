@@ -8,7 +8,6 @@
 typedef enum
 {
   MODE_USB_TO_CAN,
-  MODE_USB_TO_RS485,
   MODE_USB_TO_CLI,
 } ModeUsbMode_t;
 

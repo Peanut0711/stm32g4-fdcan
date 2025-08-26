@@ -343,11 +343,8 @@ static void bootLedToggle(cmd_t *p_cmd)
 {
   uint16_t err_code = CMD_OK;
 
-  ledOn(HW_LED_CH_RX);
-  ledOn(HW_LED_CH_TX);
+  ledToggle(_DEF_LED1);
   delay(50);
-  ledOff(HW_LED_CH_RX);
-  ledOff(HW_LED_CH_TX);
 
   cmdSendResp(p_cmd, p_cmd->packet.cmd, err_code, NULL, 0);
 }

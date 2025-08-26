@@ -49,16 +49,12 @@ static bool buttonGetPin(uint8_t ch);
 
 static const button_pin_t button_pin[BUTTON_MAX_CH] =
     {
-        {GPIOB, GPIO_PIN_12, GPIO_PIN_RESET},  // 0. BOOT
-        {GPIOB, GPIO_PIN_3,  GPIO_PIN_RESET},  // 1. S1
-        {GPIOB, GPIO_PIN_4,  GPIO_PIN_RESET},  // 2. S2
+        {GPIOC, GPIO_PIN_14, GPIO_PIN_RESET},  // 0. TEST_SW
     };
 
 static const char *button_name[BUTTON_MAX_CH+1] = 
 {
-  "0_BOOT",   
-  "1_S1",
-  "2_S2",
+  "0_TEST_SW",   
   "Unknown",
 };
 
@@ -79,11 +75,11 @@ bool buttonInit(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
 
-  __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
 
 
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
 
   for (int i=0; i<BUTTON_MAX_CH; i++)
   {

@@ -2,8 +2,7 @@
 
 #include "thread.h"
 #include "event.h"
-#include "manage/can.h"
-#include "manage/rs485.h"
+#include "manage/mode.h"
 
 
 static bool ledThreadinit(void);
@@ -71,12 +70,12 @@ void ledThreadISR(void *arg)
   switch(state_tx)
   {
     case LED_IDLE:
-      is_tx_update = canObj()->getTxUpdate() | rs485Obj()->getTxUpdate();
+      is_tx_update = modeObj()->getMode() == MODE_USB_TO_CAN;
       if (is_tx_update)
       {
         is_tx_update = false;
         state_tx = LED_ON;
-        ledOn(HW_LED_CH_TX);
+        ledOn(_DEF_LED1);
         pre_time_tx = millis();
       }
       break;
@@ -84,7 +83,7 @@ void ledThreadISR(void *arg)
       if (millis()-pre_time_tx >= 50)
       {
         state_tx = LED_OFF;
-        ledOff(HW_LED_CH_TX);
+        ledOff(_DEF_LED1);
         pre_time_tx = millis();
       }
       break;
@@ -99,12 +98,12 @@ void ledThreadISR(void *arg)
   switch(state_rx)
   {
     case LED_IDLE:
-      is_rx_update = canObj()->getRxUpdate() | rs485Obj()->getRxUpdate();
+      is_rx_update = modeObj()->getMode() == MODE_USB_TO_CAN;
       if (is_rx_update)
       {
         is_rx_update = false;
         state_rx = LED_ON;
-        ledOn(HW_LED_CH_RX);
+        ledOn(_DEF_LED1);
         pre_time_rx = millis();
       }
       break;
@@ -112,7 +111,7 @@ void ledThreadISR(void *arg)
       if (millis()-pre_time_rx >= 50)
       {
         state_rx = LED_OFF;
-        ledOff(HW_LED_CH_RX);
+        ledOff(_DEF_LED1);
         pre_time_rx = millis();
       }
       break;

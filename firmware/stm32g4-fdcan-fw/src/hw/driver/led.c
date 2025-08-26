@@ -21,21 +21,13 @@ static void cliLed(cli_args_t *args);
 
 static const led_tbl_t led_tbl[LED_MAX_CH] = 
 {
-  {GPIOB, GPIO_PIN_2,  GPIO_PIN_RESET, GPIO_PIN_SET},   // 0. DEBUG
-  {GPIOC, GPIO_PIN_10, GPIO_PIN_RESET, GPIO_PIN_SET},   // 1. RX
-  {GPIOC, GPIO_PIN_11, GPIO_PIN_RESET, GPIO_PIN_SET},   // 2. TX
-  {GPIOB, GPIO_PIN_5,  GPIO_PIN_RESET, GPIO_PIN_SET},   // 3. CAN
-  {GPIOB, GPIO_PIN_1,  GPIO_PIN_RESET, GPIO_PIN_SET},   // 4. RS485
+  {GPIOC, GPIO_PIN_13,  GPIO_PIN_RESET, GPIO_PIN_SET},   // 0. TEST_LED
 };
 
 #ifdef _USE_HW_CLI
 static const char *led_name[LED_MAX_CH+1] = 
 {
-  "0_DEBUG",   
-  "1_RX   ",
-  "2_TX   ",
-  "3_CAN  ",
-  "4_RS485",
+  "0_TEST_LED",   
   "Unknown",
 };
 #endif
@@ -46,7 +38,7 @@ bool ledInit(void)
   GPIO_InitTypeDef   GPIO_InitStructure;
 
 
-  __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
 
 
   GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;

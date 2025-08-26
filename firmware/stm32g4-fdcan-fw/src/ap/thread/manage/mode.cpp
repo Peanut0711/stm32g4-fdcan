@@ -31,7 +31,6 @@ static bool is_usb_open = false;
 static const char *usb_mode_str[] = 
   {
     "MODE_USB_TO_CAN",
-    "MODE_USB_TO_RS485",
     "MODE_USB_TO_CLI"
   };
 static const char *usb_type_str[] = 
@@ -97,7 +96,7 @@ bool modeThreadUpdate(void)
 
   // Mode Button Process
   //
-  ret = buttonEventGetPressed(&btn_evt, HW_BUTTON_CH_S2);
+  ret = buttonEventGetPressed(&btn_evt, _DEF_BUTTON1);
   if (ret == true)
   {
     usb_mode = (ModeUsbMode_t)(((int)usb_mode + 1) % 3);
@@ -131,17 +130,10 @@ bool modeThreadUpdate(void)
       usb_type = TYPE_USB_PACKET;
       break;
 
-    case MODE_USB_TO_RS485:
-      if (uartGetBaud(HW_UART_CH_USB) == 600)
-        usb_type = TYPE_USB_PACKET;
-      else
-        usb_type = TYPE_USB_UART;
-      break;
-
     case MODE_USB_TO_CLI:
       if (usbIsOpen() == true)
       {
-        if (uartGetBaud(HW_UART_CH_USB) == 115200)
+        if (uartGetBaud(_DEF_UART1) == 115200)
           usb_type = TYPE_USB_UART;
         else
           usb_type = TYPE_USB_PACKET;
@@ -169,23 +161,17 @@ bool modeThreadUpdate(void)
 
 void modeThreadISR(void *arg)
 {
-  switch(usb_mode)
-  {
-    case MODE_USB_TO_CAN:
-      ledOn(HW_LED_CH_CAN);
-      ledOff(HW_LED_CH_RS485);
-      break;
+  // switch(usb_mode)
+  // {
+  //   case MODE_USB_TO_CAN:
+  //     ledOn(_DEF_LED1);
+  //     break;
 
-    case MODE_USB_TO_RS485:
-      ledOff(HW_LED_CH_CAN);
-      ledOn(HW_LED_CH_RS485);
-      break;
-
-    case MODE_USB_TO_CLI:
-      ledOff(HW_LED_CH_CAN);
-      ledOff(HW_LED_CH_RS485);
-      break;
-  }
+  //   // case MODE_USB_TO_CLI:
+  //   //   ledOff(_DEF_LED1);
+  //   //   ledOff(_DEF_LED1);
+  //   //   break;
+  // }
 }
 
 

@@ -53,7 +53,6 @@ uint32_t available(void *args)
 {
   cmd_uart_args_t *p_args = (cmd_uart_args_t *)args;
 
-  // return uartAvailable(p_args->ch); //jangho 250826 - cli랑 같은 채널 사용 하도록 
   if (p_args->ch != cliGetPort())
     return uartAvailable(p_args->ch);
   else

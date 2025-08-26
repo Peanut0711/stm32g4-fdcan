@@ -41,50 +41,8 @@ bool cliThreadEvent(event_t *p_event)
 
 bool cliThreadUpdate(void)
 {  
-  // return true; // jangho 250826 - cli 비활성화
-
-  #ifdef _USE_HW_CLI
-  uint8_t cli_ch;
-
-
-  
-  switch(modeObj()->getMode())
-  {
-    case MODE_USB_TO_CLI:
-      if (modeObj()->getType() == TYPE_USB_UART)
-      {
-        if (usbIsOpen() && usbGetType() == USB_CON_CLI)
-        {
-          cli_ch = _DEF_UART1;
-        }
-        else
-        {
-          cli_ch = HW_UART_CH_DEBUG;
-        }
-        if (cli_ch != cliGetPort())
-        {
-          cliOpen(cli_ch, 0);
-        }
-        cliMain();
-      }
-      else
-      {
-        if (cliGetPort() != HW_UART_CH_DEBUG)
-        {
-          cliOpen(HW_UART_CH_DEBUG, 0);
-        }
-        cliMain();        
-      }
-      break;
-    
-    case MODE_USB_TO_CAN:
-      if (cliGetPort() != HW_UART_CH_DEBUG)
-      {
-        cliOpen(HW_UART_CH_DEBUG, 0);
-      }
-      cliMain();
-      break;
-  }
+  #ifdef _USE_HW_CLI 
+  cliMain();
   #endif
 
   return true;

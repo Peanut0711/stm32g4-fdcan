@@ -53,7 +53,7 @@ bool cmdThreadInit(void)
     logPrintf("    %d %s\n", i, cmd_process_info.p_process[i].name);
   }
 
-  cmdUartInitDriver(&cmd_drvier[0], _DEF_UART1, 115200);  
+  cmdUartInitDriver(&cmd_drvier[0], _DEF_UART2, 115200);  
   cmdInit(&cmd[0], &cmd_drvier[0]);
   cmdOpen(&cmd[0]);
 

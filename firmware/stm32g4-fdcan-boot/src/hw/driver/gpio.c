@@ -17,7 +17,7 @@ typedef struct
 
 const gpio_tbl_t gpio_tbl[GPIO_MAX_CH] =
     {
-        {GPIOA, GPIO_PIN_4,  _DEF_OUTPUT, GPIO_PIN_SET, GPIO_PIN_RESET,   _DEF_HIGH},      // 0. W5300_RST
+        {GPIOB, GPIO_PIN_0,  _DEF_OUTPUT, GPIO_PIN_SET, GPIO_PIN_RESET,   _DEF_HIGH},      // GPIO_SPI_FLASH_CS
     };
 
 
@@ -32,7 +32,7 @@ bool gpioInit(void)
   bool ret = true;
 
 
-  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
 
   for (int i=0; i<GPIO_MAX_CH; i++)

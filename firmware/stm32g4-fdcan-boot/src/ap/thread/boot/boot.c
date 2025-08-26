@@ -143,7 +143,7 @@ uint16_t bootUpdateFirm(void)
   firm_tag_t tag;
 
 
-  ledOff(HW_LED_CH_DOWN);
+  ledOff(HW_LED_CH_TEST_LED);
   while(1)
   {
     firm_tag_t *p_tag = (firm_tag_t *)&tag;
@@ -194,9 +194,9 @@ uint16_t bootUpdateFirm(void)
       }
 
       index += wr_size;
-      ledToggle(HW_LED_CH_UPDATE);
+      ledToggle(HW_LED_CH_TEST_LED);
     }
-    ledOff(HW_LED_CH_UPDATE);
+    ledOff(HW_LED_CH_TEST_LED);
 
     if (err_code == CMD_OK)
     {

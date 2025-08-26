@@ -52,7 +52,7 @@ void apInit(void)
   if (faultIsReady())
   {
     logPrintf("[  ] fault ready\n");
-    ledOn(HW_LED_CH_FAULT);
+    ledOn(HW_LED_CH_TEST_LED);
     is_run_fw = false;
   }
 
@@ -82,12 +82,12 @@ void apMain(void)
     if (millis()-pre_time >= 100)
     {
       pre_time = millis();
-      ledToggle(HW_LED_CH_DEBUG);
+      ledToggle(HW_LED_CH_TEST_LED);
     }    
 
     if (cmdThreadUpdate() == true)
     {
-      ledToggle(HW_LED_CH_DOWN);
+      ledToggle(HW_LED_CH_TEST_LED);
     }    
   }
 }

@@ -19,9 +19,9 @@ bool cmdThreadInit(void)
   cmdInit(&cmd[0], &cmd_drvier[0]);
   cmdOpen(&cmd[0]);
 
-  cmdUartInitDriver(&cmd_drvier[1], HW_UART_CH_RS485, 115200);
-  cmdInit(&cmd[1], &cmd_drvier[1]);
-  cmdOpen(&cmd[1]);
+  // cmdUartInitDriver(&cmd_drvier[1], HW_UART_CH_RS485, 115200);
+  // cmdInit(&cmd[1], &cmd_drvier[1]);
+  // cmdOpen(&cmd[1]);
   return true;
 }
 

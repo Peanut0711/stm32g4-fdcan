@@ -35,9 +35,9 @@
       "showDevDebugOutput": "none",      
       "servertype": "stlink",
       "osx": {
-        "serverpath": "/opt/ST/STM32CubeCLT_1.16.0/STLink-gdb-server/bin/ST-LINK_gdbserver",
-        "stm32cubeprogrammer": "/opt/ST/STM32CubeCLT_1.16.0/STM32CubeProgrammer/bin",
-        "svdFile": "/opt/ST/STM32CubeCLT_1.16.0/STMicroelectronics_CMSIS_SVD/STM32G431.svd"
+        "serverpath": "/opt/ST/STM32CubeCLT_1.18.0/STLink-gdb-server/bin/ST-LINK_gdbserver",
+        "stm32cubeprogrammer": "/opt/ST/STM32CubeCLT_1.18.0/STM32CubeProgrammer/bin",
+        "svdFile": "/opt/ST/STM32CubeCLT_1.18.0/STMicroelectronics_CMSIS_SVD/STM32G431.svd"
       },  
       "windows": {
         "serverpath": "C:/ST/STM32CubeCLT_1.18.0/STLink-gdb-server/bin/ST-LINK_gdbserver.exe",

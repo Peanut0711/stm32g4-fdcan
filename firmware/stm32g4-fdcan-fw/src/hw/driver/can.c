@@ -768,10 +768,10 @@ void canInfoPrint(uint8_t ch)
       canPrintf("125K\n");
       break;
     case CAN_250K:
-      canPrintf("250\n");
+      canPrintf("250K\n");
       break;
     case CAN_500K:
-      canPrintf("250\n");
+      canPrintf("500K\n");
       break;
     case CAN_1M:
       canPrintf("1M\n");
@@ -790,15 +790,14 @@ void canInfoPrint(uint8_t ch)
       canPrintf("125K\n");
       break;
     case CAN_250K:
-      canPrintf("250\n");
+      canPrintf("250K\n");
       break;
     case CAN_500K:
-      canPrintf("250\n");
+      canPrintf("500K\n");
       break;
     case CAN_1M:
       canPrintf("1M\n");
       break;
-
     case CAN_2M:
       canPrintf("2M\n");
       break;  
@@ -902,17 +901,17 @@ void HAL_FDCAN_MspInit(FDCAN_HandleTypeDef* fdcanHandle)
     /* FDCAN1 clock enable */
     __HAL_RCC_FDCAN_CLK_ENABLE();
 
-    __HAL_RCC_GPIOB_CLK_ENABLE();
+    __HAL_RCC_GPIOA_CLK_ENABLE();
     /**FDCAN1 GPIO Configuration
-    PB8-BOOT0   ------> FDCAN1_RX
-    PB9         ------> FDCAN1_TX
+    PA11         ------> FDCAN1_RX
+    PA12         ------> FDCAN1_TX
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9;
+    GPIO_InitStruct.Pin = GPIO_PIN_11|GPIO_PIN_12;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF9_FDCAN1;
-    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     HAL_NVIC_SetPriority(FDCAN1_IT0_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(FDCAN1_IT0_IRQn);
@@ -927,10 +926,10 @@ void HAL_FDCAN_MspDeInit(FDCAN_HandleTypeDef* fdcanHandle)
     __HAL_RCC_FDCAN_CLK_DISABLE();
 
     /**FDCAN1 GPIO Configuration
-    PB8-BOOT0   ------> FDCAN1_RX
-    PB9         ------> FDCAN1_TX
+    PA11         ------> FDCAN1_RX
+    PA12         ------> FDCAN1_TX
     */
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_8|GPIO_PIN_9);
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_11|GPIO_PIN_12);
 
     HAL_NVIC_DisableIRQ(FDCAN1_IT0_IRQn);
   }
@@ -943,11 +942,11 @@ void cliCan(cli_args_t *args)
   bool ret = false;
 
 
-   canLock();
+  canLock();
 
   if (args->argc == 1 && args->isStr(0, "info"))
   {
-    for (int i=0; i<CAN_MAX_CH; i++)
+    for (int i = 0; i < CAN_MAX_CH; i++)
     {
       if (can_tbl[i].is_open == true)
       {
@@ -959,7 +958,7 @@ void cliCan(cli_args_t *args)
         cliPrintf("fifo_full_cnt : %d\n", can_tbl[i].fifo_full_cnt);
         cliPrintf("fifo_lost_cnt : %d\n", can_tbl[i].fifo_lost_cnt);
         cliPrintf("rx error cnt  : %d\n", canGetRxErrCount(i));
-        cliPrintf("tx error cnt  : %d\n", canGetTxErrCount(i));      
+        cliPrintf("tx error cnt  : %d\n", canGetTxErrCount(i));
         canErrPrint(i);
         cliPrintf("\n");
       }
@@ -992,30 +991,58 @@ void cliCan(cli_args_t *args)
     ret = true;
   }
 
-  if (args->argc == 2 && args->isStr(0, "open") && args->isStr(1, "test"))
+  if (args->argc == 3 && args->isStr(0, "open") && args->isStr(1, "loop"))
   {
-    bool can_ret;
+    bool    can_ret;
+    uint8_t ch;
 
-    can_ret = canOpen(_DEF_CAN1, CAN_LOOPBACK, CAN_FD_BRS, CAN_1M, CAN_5M); 
-    cliPrintf("canOpen() : %s\n", can_ret ? "True":"False");
-    canInfoPrint(_DEF_CAN1);
+    ch = constrain(args->getData(2), 0, CAN_MAX_CH - 1);
+
+    can_ret = canOpen(ch, CAN_LOOPBACK, CAN_FD_BRS, CAN_1M, CAN_5M);
+    cliPrintf("canOpen() : %s\n", can_ret ? "True" : "False");
+    canInfoPrint(ch);
+    ret = true;
+  }
+
+  if (args->argc == 3 && args->isStr(0, "open") && args->isStr(1, "normal"))
+  {
+    bool    can_ret;
+    uint8_t ch;
+
+    ch = constrain(args->getData(2), 0, CAN_MAX_CH - 1);
+
+    can_ret = canOpen(ch, CAN_NORMAL, CAN_FD_BRS, CAN_1M, CAN_5M);
+    cliPrintf("canOpen() : %s\n", can_ret ? "True" : "False");
+    canInfoPrint(ch);
+    ret = true;
+  }
+
+  if (args->argc == 2 && args->isStr(0, "recovery"))
+  {
+    uint8_t ch;
+
+    ch = constrain(args->getData(1), 0, CAN_MAX_CH - 1);
+
+    cliPrintf("canRecovery() ch: %d\n", ch);
+    canRecovery(ch);
+    canInfoPrint(ch);
     ret = true;
   }
 
   if (args->argc == 6 && args->isStr(0, "open"))
   {
-    uint8_t ch;
-    CanMode_t mode = CAN_NORMAL;
-    CanFrame_t frame = CAN_CLASSIC;
-    CanBaud_t baud = CAN_1M;
-    CanBaud_t baud_data = CAN_1M;
-    const char *mode_str[]  = {"CAN_NORMAL", "CAN_MONITOR", "CAN_LOOPBACK"};
+    uint8_t     ch;
+    CanMode_t   mode        = CAN_NORMAL;
+    CanFrame_t  frame       = CAN_CLASSIC;
+    CanBaud_t   baud        = CAN_1M;
+    CanBaud_t   baud_data   = CAN_1M;
+    const char *mode_str[]  = {"CLAN_NORMAL", "CAN_MONITOR", "CAN_LOOPBACK"};
     const char *frame_str[] = {"CAN_CLASSIC", "CAN_FD_NO_BRS", "CAN_FD_BRS"};
     const char *baud_str[]  = {"CAN_100K", "CAN_125K", "CAN_250K", "CAN_500K", "CAN_1M", "CAN_2M", "CAN_4M", "CAN_5M"};
 
-    ch = constrain(args->getData(1), 0, CAN_MAX_CH - 1); 
+    ch = constrain(args->getData(1), 0, CAN_MAX_CH - 1);
 
-    for (int i=0; i<3; i++)
+    for (int i = 0; i < 3; i++)
     {
       if (args->isStr(2, mode_str[i]))
       {
@@ -1023,7 +1050,7 @@ void cliCan(cli_args_t *args)
         break;
       }
     }
-    for (int i=0; i<3; i++)
+    for (int i = 0; i < 3; i++)
     {
       if (args->isStr(3, frame_str[i]))
       {
@@ -1031,7 +1058,7 @@ void cliCan(cli_args_t *args)
         break;
       }
     }
-    for (int i=0; i<8; i++)
+    for (int i = 0; i < 8; i++)
     {
       if (args->isStr(4, baud_str[i]))
       {
@@ -1039,7 +1066,7 @@ void cliCan(cli_args_t *args)
         break;
       }
     }
-    for (int i=0; i<8; i++)
+    for (int i = 0; i < 8; i++)
     {
       if (args->isStr(5, baud_str[i]))
       {
@@ -1050,20 +1077,33 @@ void cliCan(cli_args_t *args)
 
     bool can_ret;
 
-    can_ret = canOpen(ch, mode, frame, baud, baud_data); 
-    cliPrintf("canOpen() : %s\n", can_ret ? "True":"False");
+    can_ret = canOpen(ch, mode, frame, baud, baud_data);
+    cliPrintf("canOpen() : %s\n", can_ret ? "True" : "False");
+    ret = true;
+  }
+  
+  if (args->argc == 3 && args->isStr(0, "open") && args->isStr(1, "test"))
+  {
+    bool can_ret;
+    uint8_t ch;
+
+    ch = constrain(args->getData(2), 0, CAN_MAX_CH - 1);
+
+    can_ret = canOpen(ch, CAN_NORMAL, CAN_CLASSIC, CAN_500K, CAN_1M);
+    cliPrintf("canOpen() : %s\n", can_ret ? "True" : "False");
+    canInfoPrint(ch);
     ret = true;
   }
 
   if (args->argc == 2 && args->isStr(0, "read_test"))
   {
     uint32_t index = 0;
-    uint8_t ch;
+    uint8_t  ch;
 
-    ch = constrain(args->getData(1), 0, CAN_MAX_CH - 1); 
+    ch = constrain(args->getData(1), 0, CAN_MAX_CH - 1);
 
 
-    while(cliKeepLoop())
+    while (cliKeepLoop())
     {
       if (canMsgAvailable(ch))
       {
@@ -1072,7 +1112,7 @@ void cliCan(cli_args_t *args)
         canMsgRead(ch, &msg);
 
         index %= 1000;
-        cliPrintf("ch %d %03d(R) <- id ",ch, index++);
+        cliPrintf("ch %d %03d(R) <- id ", ch, index++);
         if (msg.frame != CAN_CLASSIC)
         {
           cliPrintf("fd ");
@@ -1080,7 +1120,7 @@ void cliCan(cli_args_t *args)
         else
         {
           cliPrintf("   ");
-        }        
+        }
         if (msg.id_type == CAN_STD)
         {
           cliPrintf("std ");
@@ -1090,7 +1130,7 @@ void cliCan(cli_args_t *args)
           cliPrintf("ext ");
         }
         cliPrintf(": 0x%08X, L:%02d, ", msg.id, msg.length);
-        for (int i=0; i<msg.length; i++)
+        for (int i = 0; i < msg.length; i++)
         {
           cliPrintf("0x%02X ", msg.data[i]);
         }
@@ -1102,27 +1142,27 @@ void cliCan(cli_args_t *args)
 
   if (args->argc == 3 && args->isStr(0, "send_test"))
   {
-    uint32_t pre_time;
-    uint32_t index = 0;
-    uint32_t err_code;
-    uint8_t ch;
+    uint32_t   pre_time;
+    uint32_t   index = 0;
+    uint32_t   err_code;
+    uint8_t    ch;
     CanFrame_t frame;
 
-    ch = constrain(args->getData(1), 0, CAN_MAX_CH - 1); 
+    ch = constrain(args->getData(1), 0, CAN_MAX_CH - 1);
 
     if (args->isStr(2, "can"))
       frame = CAN_CLASSIC;
     else
       frame = CAN_FD_BRS;
 
-    err_code = can_tbl[_DEF_CAN1].err_code;
+    err_code = can_tbl[ch].err_code;
 
     pre_time = millis();
-    while(cliKeepLoop())
+    while (cliKeepLoop())
     {
       can_msg_t msg;
 
-      if (millis()-pre_time >= 1)
+      if (millis() - pre_time >= 1)
       {
         pre_time = millis();
 
@@ -1155,7 +1195,7 @@ void cliCan(cli_args_t *args)
             cliPrintf("ext ");
           }
           cliPrintf(": 0x%08X, L:%02d, ", msg.id, msg.length);
-          for (int i=0; i<msg.length; i++)
+          for (int i = 0; i < msg.length; i++)
           {
             cliPrintf("0x%02X ", msg.data[i]);
           }
@@ -1164,7 +1204,7 @@ void cliCan(cli_args_t *args)
 
         if (canGetRxErrCount(ch) > 0 || canGetTxErrCount(ch) > 0)
         {
-          cliPrintf("ch %d ErrCnt : %d, %d\n", ch, canGetRxErrCount(ch), canGetTxErrCount(ch));
+          cliPrintf("ch %d rx err %d, tx err %d\n", ch, canGetRxErrCount(ch), canGetTxErrCount(ch));
         }
 
         if (err_int_cnt > 0)
@@ -1200,7 +1240,7 @@ void cliCan(cli_args_t *args)
         else
         {
           cliPrintf("   ");
-        }        
+        }
         if (msg.id_type == CAN_STD)
         {
           cliPrintf("std ");
@@ -1210,7 +1250,7 @@ void cliCan(cli_args_t *args)
           cliPrintf("ext ");
         }
         cliPrintf(": 0x%08X, L:%02d, ", msg.id, msg.length);
-        for (int i=0; i<msg.length; i++)
+        for (int i = 0; i < msg.length; i++)
         {
           cliPrintf("0x%02X ", msg.data[i]);
         }
@@ -1226,10 +1266,13 @@ void cliCan(cli_args_t *args)
   {
     cliPrintf("can info\n");
     cliPrintf("can open\n");
-    cliPrintf("can open ch[0~%d] mode frame baud fd_baud\n", CAN_MAX_CH-1);    
-    cliPrintf("can open test\n");
-    cliPrintf("can read_test ch[0~%d]\n", CAN_MAX_CH-1);
-    cliPrintf("can send_test ch[0~%d] can:fd\n", CAN_MAX_CH-1);
+    cliPrintf("can open test ch[0~%d]\n", CAN_MAX_CH - 1);
+    cliPrintf("can open ch[0~%d] mode frame baud fd_baud\n", CAN_MAX_CH - 1);
+    cliPrintf("can open loop ch[0~%d]\n", CAN_MAX_CH - 1);
+    cliPrintf("can open normal ch[0~%d]\n", CAN_MAX_CH - 1);
+    cliPrintf("can recovery ch[0~%d]\n", CAN_MAX_CH - 1);
+    cliPrintf("can read_test ch[0~%d]\n", CAN_MAX_CH - 1);
+    cliPrintf("can send_test ch[0~%d] can:fd\n", CAN_MAX_CH - 1);
   }
 }
 #endif

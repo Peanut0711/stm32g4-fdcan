@@ -44,12 +44,12 @@ typedef struct
 static void cliButton(cli_args_t *args);
 #endif
 static void buttonISR(void *arg);
-static bool buttonGetPin(uint8_t ch);
+
 
 
 static const button_pin_t button_pin[BUTTON_MAX_CH] =
     {
-        {GPIOC, GPIO_PIN_14, GPIO_PIN_RESET},  // 0. TEST_SW
+        {GPIOC, GPIO_PIN_14, GPIO_PIN_SET},  // 0. TEST_SW
     };
 
 static const char *button_name[BUTTON_MAX_CH+1] = 
@@ -79,7 +79,7 @@ bool buttonInit(void)
 
 
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
 
   for (int i=0; i<BUTTON_MAX_CH; i++)
   {

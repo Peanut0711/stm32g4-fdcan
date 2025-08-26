@@ -46,6 +46,8 @@ bool     buttonEventGetPressed(button_event_t *p_event, uint8_t ch);
 bool     buttonEventGetReleased(button_event_t *p_event, uint8_t ch);
 uint32_t buttonEventGetRepeat(button_event_t *p_event, uint8_t ch);
 
+bool buttonGetPin(uint8_t ch);
+
 
 #endif
 

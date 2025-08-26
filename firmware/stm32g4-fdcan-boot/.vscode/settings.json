@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "swtimer.h": "c",
+    "cli.h": "c",
+    "button.h": "c"
+  }
+}

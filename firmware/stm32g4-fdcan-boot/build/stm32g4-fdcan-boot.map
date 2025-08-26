@@ -2304,6 +2304,8 @@ Discarded input sections
                 0x00000000       0x18 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
  .text.buttonEnable
                 0x00000000        0xc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
+ .text.buttonGetPressed
+                0x00000000       0x1c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
  .text.buttonGetData
                 0x00000000        0xa CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
  .text.buttonGetName
@@ -2330,6 +2332,8 @@ Discarded input sections
                 0x00000000       0x3c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
  .rodata.str1.1
                 0x00000000       0x10 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
+ .data.is_enable
+                0x00000000        0x1 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
  .rodata.button_name
                 0x00000000        0x8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
  .debug_macro   0x00000000      0xa72 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
@@ -13551,7 +13555,7 @@ LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2
                 0x08000400                firm_ver
                 0x08000448                . = ALIGN (0x4)
 
-.text           0x08000800     0x4944
+.text           0x08000800     0x494c
                 0x08000800                . = ALIGN (0x4)
  *(.text)
  .text          0x08000800       0x40 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
@@ -13615,657 +13619,656 @@ LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2
                 0x08000d70       0x12 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/main.c.obj
                 0x08000d70                main
  *fill*         0x08000d82        0x2 
- .text.apInit   0x08000d84       0xf0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/ap.c.obj
+ .text.apInit   0x08000d84       0xf8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/ap.c.obj
                 0x08000d84                apInit
- .text.apMain   0x08000e74       0x32 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/ap.c.obj
-                0x08000e74                apMain
- *fill*         0x08000ea6        0x2 
+ .text.apMain   0x08000e7c       0x32 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/ap.c.obj
+                0x08000e7c                apMain
+ *fill*         0x08000eae        0x2 
  .text.bootVerifyFirm
-                0x08000ea8       0x8c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/boot/boot.c.obj
-                0x08000ea8                bootVerifyFirm
+                0x08000eb0       0x8c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/boot/boot.c.obj
+                0x08000eb0                bootVerifyFirm
  .text.bootUpdateFirm
-                0x08000f34       0x90 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/boot/boot.c.obj
-                0x08000f34                bootUpdateFirm
+                0x08000f3c       0x90 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/boot/boot.c.obj
+                0x08000f3c                bootUpdateFirm
  .text.bootJumpFirm
-                0x08000fc4       0x54 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/boot/boot.c.obj
-                0x08000fc4                bootJumpFirm
+                0x08000fcc       0x54 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/boot/boot.c.obj
+                0x08000fcc                bootJumpFirm
  .text.cmdThreadInit
-                0x08001018       0x2c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/cmd_thread.c.obj
-                0x08001018                cmdThreadInit
+                0x08001020       0x2c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/cmd_thread.c.obj
+                0x08001020                cmdThreadInit
  .text.cmdThreadUpdate
-                0x08001044       0x48 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/cmd_thread.c.obj
-                0x08001044                cmdThreadUpdate
- .text.write    0x0800108c        0x6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
- .text.read     0x08001092        0x6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
- .text.flush    0x08001098        0x6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
+                0x0800104c       0x48 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/cmd_thread.c.obj
+                0x0800104c                cmdThreadUpdate
+ .text.write    0x08001094        0x6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
+ .text.read     0x0800109a        0x6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
+ .text.flush    0x080010a0        0x6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
  .text.available
-                0x0800109e        0x6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
- .text.close    0x080010a4        0x6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
- .text.open     0x080010aa        0x8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
- *fill*         0x080010b2        0x2 
+                0x080010a6        0x6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
+ .text.close    0x080010ac        0x6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
+ .text.open     0x080010b2        0x8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
+ *fill*         0x080010ba        0x2 
  .text.cmdUartInitDriver
-                0x080010b4       0x44 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
-                0x080010b4                cmdUartInitDriver
+                0x080010bc       0x44 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
+                0x080010bc                cmdUartInitDriver
  .text.cmdBootProcess
-                0x080010f8      0x270 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/process/cmd_boot.c.obj
-                0x080010f8                cmdBootProcess
+                0x08001100      0x270 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/process/cmd_boot.c.obj
+                0x08001100                cmdBootProcess
  .text.Reset_Handler
-                0x08001368       0x50 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
-                0x08001368                Reset_Handler
+                0x08001370       0x50 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
+                0x08001370                Reset_Handler
  .text.Default_Handler
-                0x080013b8        0x2 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
-                0x080013b8                RTC_Alarm_IRQHandler
-                0x080013b8                EXTI2_IRQHandler
-                0x080013b8                TIM8_TRG_COM_IRQHandler
-                0x080013b8                TIM8_CC_IRQHandler
-                0x080013b8                TIM1_CC_IRQHandler
-                0x080013b8                USB_HP_IRQHandler
-                0x080013b8                CORDIC_IRQHandler
-                0x080013b8                EXTI3_IRQHandler
-                0x080013b8                I2C3_ER_IRQHandler
-                0x080013b8                EXTI0_IRQHandler
-                0x080013b8                I2C2_EV_IRQHandler
-                0x080013b8                FPU_IRQHandler
-                0x080013b8                FDCAN1_IT1_IRQHandler
-                0x080013b8                TIM1_UP_TIM16_IRQHandler
-                0x080013b8                ADC1_2_IRQHandler
-                0x080013b8                SPI1_IRQHandler
-                0x080013b8                TIM6_DAC_IRQHandler
-                0x080013b8                TIM8_UP_IRQHandler
-                0x080013b8                DMA2_Channel2_IRQHandler
-                0x080013b8                DMA1_Channel4_IRQHandler
-                0x080013b8                USART3_IRQHandler
-                0x080013b8                TIM4_IRQHandler
-                0x080013b8                DMA2_Channel1_IRQHandler
-                0x080013b8                I2C1_EV_IRQHandler
-                0x080013b8                DMA1_Channel6_IRQHandler
-                0x080013b8                UART4_IRQHandler
-                0x080013b8                DMA2_Channel4_IRQHandler
-                0x080013b8                TIM3_IRQHandler
-                0x080013b8                RCC_IRQHandler
-                0x080013b8                DMA1_Channel1_IRQHandler
-                0x080013b8                Default_Handler
-                0x080013b8                RTC_TAMP_LSECSS_IRQHandler
-                0x080013b8                FMAC_IRQHandler
-                0x080013b8                EXTI15_10_IRQHandler
-                0x080013b8                TIM7_IRQHandler
-                0x080013b8                UCPD1_IRQHandler
-                0x080013b8                I2C3_EV_IRQHandler
-                0x080013b8                EXTI9_5_IRQHandler
-                0x080013b8                RTC_WKUP_IRQHandler
-                0x080013b8                PVD_PVM_IRQHandler
-                0x080013b8                SPI2_IRQHandler
-                0x080013b8                DMA2_Channel5_IRQHandler
-                0x080013b8                CRS_IRQHandler
-                0x080013b8                DMA1_Channel5_IRQHandler
-                0x080013b8                USB_LP_IRQHandler
-                0x080013b8                EXTI4_IRQHandler
-                0x080013b8                RNG_IRQHandler
-                0x080013b8                TIM1_TRG_COM_TIM17_IRQHandler
-                0x080013b8                DMA1_Channel3_IRQHandler
-                0x080013b8                WWDG_IRQHandler
-                0x080013b8                LPUART1_IRQHandler
-                0x080013b8                DMA2_Channel6_IRQHandler
-                0x080013b8                FDCAN1_IT0_IRQHandler
-                0x080013b8                TIM2_IRQHandler
-                0x080013b8                COMP1_2_3_IRQHandler
-                0x080013b8                EXTI1_IRQHandler
-                0x080013b8                USART2_IRQHandler
-                0x080013b8                I2C2_ER_IRQHandler
-                0x080013b8                DMA1_Channel2_IRQHandler
-                0x080013b8                TIM8_BRK_IRQHandler
-                0x080013b8                FLASH_IRQHandler
-                0x080013b8                USART1_IRQHandler
-                0x080013b8                SPI3_IRQHandler
-                0x080013b8                I2C1_ER_IRQHandler
-                0x080013b8                LPTIM1_IRQHandler
-                0x080013b8                DMAMUX_OVR_IRQHandler
-                0x080013b8                USBWakeUp_IRQHandler
-                0x080013b8                SAI1_IRQHandler
-                0x080013b8                DMA2_Channel3_IRQHandler
-                0x080013b8                COMP4_IRQHandler
-                0x080013b8                TIM1_BRK_TIM15_IRQHandler
+                0x080013c0        0x2 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
+                0x080013c0                RTC_Alarm_IRQHandler
+                0x080013c0                EXTI2_IRQHandler
+                0x080013c0                TIM8_TRG_COM_IRQHandler
+                0x080013c0                TIM8_CC_IRQHandler
+                0x080013c0                TIM1_CC_IRQHandler
+                0x080013c0                USB_HP_IRQHandler
+                0x080013c0                CORDIC_IRQHandler
+                0x080013c0                EXTI3_IRQHandler
+                0x080013c0                I2C3_ER_IRQHandler
+                0x080013c0                EXTI0_IRQHandler
+                0x080013c0                I2C2_EV_IRQHandler
+                0x080013c0                FPU_IRQHandler
+                0x080013c0                FDCAN1_IT1_IRQHandler
+                0x080013c0                TIM1_UP_TIM16_IRQHandler
+                0x080013c0                ADC1_2_IRQHandler
+                0x080013c0                SPI1_IRQHandler
+                0x080013c0                TIM6_DAC_IRQHandler
+                0x080013c0                TIM8_UP_IRQHandler
+                0x080013c0                DMA2_Channel2_IRQHandler
+                0x080013c0                DMA1_Channel4_IRQHandler
+                0x080013c0                USART3_IRQHandler
+                0x080013c0                TIM4_IRQHandler
+                0x080013c0                DMA2_Channel1_IRQHandler
+                0x080013c0                I2C1_EV_IRQHandler
+                0x080013c0                DMA1_Channel6_IRQHandler
+                0x080013c0                UART4_IRQHandler
+                0x080013c0                DMA2_Channel4_IRQHandler
+                0x080013c0                TIM3_IRQHandler
+                0x080013c0                RCC_IRQHandler
+                0x080013c0                DMA1_Channel1_IRQHandler
+                0x080013c0                Default_Handler
+                0x080013c0                RTC_TAMP_LSECSS_IRQHandler
+                0x080013c0                FMAC_IRQHandler
+                0x080013c0                EXTI15_10_IRQHandler
+                0x080013c0                TIM7_IRQHandler
+                0x080013c0                UCPD1_IRQHandler
+                0x080013c0                I2C3_EV_IRQHandler
+                0x080013c0                EXTI9_5_IRQHandler
+                0x080013c0                RTC_WKUP_IRQHandler
+                0x080013c0                PVD_PVM_IRQHandler
+                0x080013c0                SPI2_IRQHandler
+                0x080013c0                DMA2_Channel5_IRQHandler
+                0x080013c0                CRS_IRQHandler
+                0x080013c0                DMA1_Channel5_IRQHandler
+                0x080013c0                USB_LP_IRQHandler
+                0x080013c0                EXTI4_IRQHandler
+                0x080013c0                RNG_IRQHandler
+                0x080013c0                TIM1_TRG_COM_TIM17_IRQHandler
+                0x080013c0                DMA1_Channel3_IRQHandler
+                0x080013c0                WWDG_IRQHandler
+                0x080013c0                LPUART1_IRQHandler
+                0x080013c0                DMA2_Channel6_IRQHandler
+                0x080013c0                FDCAN1_IT0_IRQHandler
+                0x080013c0                TIM2_IRQHandler
+                0x080013c0                COMP1_2_3_IRQHandler
+                0x080013c0                EXTI1_IRQHandler
+                0x080013c0                USART2_IRQHandler
+                0x080013c0                I2C2_ER_IRQHandler
+                0x080013c0                DMA1_Channel2_IRQHandler
+                0x080013c0                TIM8_BRK_IRQHandler
+                0x080013c0                FLASH_IRQHandler
+                0x080013c0                USART1_IRQHandler
+                0x080013c0                SPI3_IRQHandler
+                0x080013c0                I2C1_ER_IRQHandler
+                0x080013c0                LPTIM1_IRQHandler
+                0x080013c0                DMAMUX_OVR_IRQHandler
+                0x080013c0                USBWakeUp_IRQHandler
+                0x080013c0                SAI1_IRQHandler
+                0x080013c0                DMA2_Channel3_IRQHandler
+                0x080013c0                COMP4_IRQHandler
+                0x080013c0                TIM1_BRK_TIM15_IRQHandler
  .text.HardFault_Asm_Handler
-                0x080013ba       0x12 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
-                0x080013ba                HardFault_Handler
+                0x080013c2       0x12 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
+                0x080013c2                HardFault_Handler
  .text.MemManage_Asm_Handler
-                0x080013cc       0x12 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
-                0x080013cc                MemManage_Handler
+                0x080013d4       0x12 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
+                0x080013d4                MemManage_Handler
  .text.BusFault_Asm_Handler
-                0x080013de       0x12 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
-                0x080013de                BusFault_Handler
+                0x080013e6       0x12 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
+                0x080013e6                BusFault_Handler
  .text.UsageFault_Asm_Handler
-                0x080013f0       0x12 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
-                0x080013f0                UsageFault_Handler
+                0x080013f8       0x12 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
+                0x080013f8                UsageFault_Handler
  .text.qbufferCreate
-                0x08001402       0x12 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
-                0x08001402                qbufferCreate
+                0x0800140a       0x12 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
+                0x0800140a                qbufferCreate
  .text.qbufferRead
-                0x08001414       0x4c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
-                0x08001414                qbufferRead
+                0x0800141c       0x4c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
+                0x0800141c                qbufferRead
  .text.qbufferAvailable
-                0x08001460       0x14 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
-                0x08001460                qbufferAvailable
+                0x08001468       0x14 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
+                0x08001468                qbufferAvailable
  .text.utilUpdateCrc
-                0x08001474       0x18 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/util.c.obj
-                0x08001474                utilUpdateCrc
+                0x0800147c       0x18 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/util.c.obj
+                0x0800147c                utilUpdateCrc
  .text.mini_pad
-                0x0800148c       0x7a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
- .text._puts    0x08001506       0x32 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
+                0x08001494       0x7a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
+ .text._puts    0x0800150e       0x32 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
  .text.mini_itoa.part.0
-                0x08001538       0x76 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
- *fill*         0x080015ae        0x2 
+                0x08001540       0x76 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
+ *fill*         0x080015b6        0x2 
  .text.mini_vpprintf
-                0x080015b0      0x16c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
-                0x080015b0                mini_vpprintf
+                0x080015b8      0x16c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
+                0x080015b8                mini_vpprintf
  .text.mini_vsnprintf
-                0x0800171c       0x30 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
-                0x0800171c                mini_vsnprintf
+                0x08001724       0x30 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
+                0x08001724                mini_vsnprintf
  .text.buttonISR
-                0x0800174c       0xe8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
+                0x08001754       0xe8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
  .text.buttonInit
-                0x08001834       0x9c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
-                0x08001834                buttonInit
- .text.buttonGetPressed
-                0x080018d0       0x1c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
-                0x080018d0                buttonGetPressed
- .text.cmdInit  0x080018ec       0x14 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
-                0x080018ec                cmdInit
- .text.cmdOpen  0x08001900       0x1e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
-                0x08001900                cmdOpen
+                0x0800183c       0x98 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
+                0x0800183c                buttonInit
+ .text.buttonGetPin
+                0x080018d4       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
+                0x080018d4                buttonGetPin
+ .text.cmdInit  0x080018f4       0x14 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
+                0x080018f4                cmdInit
+ .text.cmdOpen  0x08001908       0x1e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
+                0x08001908                cmdOpen
  .text.cmdReceivePacket
-                0x0800191e      0x136 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
-                0x0800191e                cmdReceivePacket
- .text.cmdSend  0x08001a54       0x7e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
-                0x08001a54                cmdSend
+                0x08001926      0x136 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
+                0x08001926                cmdReceivePacket
+ .text.cmdSend  0x08001a5c       0x7e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
+                0x08001a5c                cmdSend
  .text.cmdSendResp
-                0x08001ad2       0x16 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
-                0x08001ad2                cmdSendResp
+                0x08001ada       0x16 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
+                0x08001ada                cmdSendResp
  .text.faultInit
-                0x08001ae8       0xb8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
-                0x08001ae8                faultInit
+                0x08001af0       0xb8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
+                0x08001af0                faultInit
  .text.faultIsReady
-                0x08001ba0        0xc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
-                0x08001ba0                faultIsReady
+                0x08001ba8        0xc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
+                0x08001ba8                faultIsReady
  .text.faultReset
-                0x08001bac       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
-                0x08001bac                faultReset
+                0x08001bb4       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
+                0x08001bb4                faultReset
  .text.flashInit
-                0x08001c34       0x10 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
-                0x08001c34                flashInit
+                0x08001c3c       0x10 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
+                0x08001c3c                flashInit
  .text.flashInSector
-                0x08001c44       0x3c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
-                0x08001c44                flashInSector
+                0x08001c4c       0x3c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
+                0x08001c4c                flashInSector
  .text.flashErase
-                0x08001c80       0x98 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
-                0x08001c80                flashErase
+                0x08001c88       0x98 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
+                0x08001c88                flashErase
  .text.flashWrite
-                0x08001d18       0x72 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
-                0x08001d18                flashWrite
+                0x08001d20       0x72 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
+                0x08001d20                flashWrite
  .text.flashRead
-                0x08001d8a       0x48 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
-                0x08001d8a                flashRead
- *fill*         0x08001dd2        0x2 
+                0x08001d92       0x48 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
+                0x08001d92                flashRead
+ *fill*         0x08001dda        0x2 
  .text.gpioPinMode
-                0x08001dd4       0x50 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
-                0x08001dd4                gpioPinMode
+                0x08001ddc       0x50 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
+                0x08001ddc                gpioPinMode
  .text.gpioInit
-                0x08001e24       0x38 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
-                0x08001e24                gpioInit
+                0x08001e2c       0x38 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
+                0x08001e2c                gpioInit
  .text.gpioPinWrite
-                0x08001e5c       0x18 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
-                0x08001e5c                gpioPinWrite
- .text.ledInit  0x08001e74       0x48 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
-                0x08001e74                ledInit
- .text.ledOn    0x08001ebc       0x14 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
-                0x08001ebc                ledOn
- .text.ledOff   0x08001ed0       0x14 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
-                0x08001ed0                ledOff
+                0x08001e64       0x18 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
+                0x08001e64                gpioPinWrite
+ .text.ledInit  0x08001e7c       0x48 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
+                0x08001e7c                ledInit
+ .text.ledOn    0x08001ec4       0x14 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
+                0x08001ec4                ledOn
+ .text.ledOff   0x08001ed8       0x14 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
+                0x08001ed8                ledOff
  .text.ledToggle
-                0x08001ee4       0x14 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
-                0x08001ee4                ledToggle
- .text.logInit  0x08001ef8        0xc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
-                0x08001ef8                logInit
- .text.logOpen  0x08001f04       0x1c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
-                0x08001f04                logOpen
+                0x08001eec       0x14 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
+                0x08001eec                ledToggle
+ .text.logInit  0x08001f00        0xc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
+                0x08001f00                logInit
+ .text.logOpen  0x08001f0c       0x1c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
+                0x08001f0c                logOpen
  .text.logPrintf
-                0x08001f20       0x34 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
-                0x08001f20                logPrintf
+                0x08001f28       0x34 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
+                0x08001f28                logPrintf
  .text.resetInit
-                0x08001f54       0xec CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
-                0x08001f54                resetInit
+                0x08001f5c       0xec CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
+                0x08001f5c                resetInit
  .text.resetSetBootMode
-                0x08002040       0x10 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
-                0x08002040                resetSetBootMode
+                0x08002048       0x10 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
+                0x08002048                resetSetBootMode
  .text.resetGetBootMode
-                0x08002050        0xc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
-                0x08002050                resetGetBootMode
- .text.rtcInit  0x0800205c       0x54 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
-                0x0800205c                rtcInit
+                0x08002058        0xc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
+                0x08002058                resetGetBootMode
+ .text.rtcInit  0x08002064       0x54 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
+                0x08002064                rtcInit
  .text.HAL_RTC_MspInit
-                0x080020b0       0x4c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
-                0x080020b0                HAL_RTC_MspInit
+                0x080020b8       0x4c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
+                0x080020b8                HAL_RTC_MspInit
  .text.rtcSetReg
-                0x080020fc       0x1c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
-                0x080020fc                rtcSetReg
+                0x08002104       0x1c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
+                0x08002104                rtcSetReg
  .text.rtcGetReg
-                0x08002118       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
-                0x08002118                rtcGetReg
- .text.spiInit  0x08002138       0x1c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
-                0x08002138                spiInit
+                0x08002120       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
+                0x08002120                rtcGetReg
+ .text.spiInit  0x08002140       0x1c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
+                0x08002140                spiInit
  .text.spiBegin
-                0x08002154       0x5c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
-                0x08002154                spiBegin
+                0x0800215c       0x5c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
+                0x0800215c                spiBegin
  .text.spiTransfer
-                0x080021b0       0x4c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
-                0x080021b0                spiTransfer
+                0x080021b8       0x4c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
+                0x080021b8                spiTransfer
  .text.HAL_SPI_MspInit
-                0x080021fc       0x64 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
-                0x080021fc                HAL_SPI_MspInit
+                0x08002204       0x64 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
+                0x08002204                HAL_SPI_MspInit
  .text.HAL_SPI_MspDeInit
-                0x08002260       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
-                0x08002260                HAL_SPI_MspDeInit
+                0x08002268       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
+                0x08002268                HAL_SPI_MspDeInit
  .text.spiFlashTransfer
-                0x08002288       0x16 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+                0x08002290       0x16 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
  .text.spiFlashWriteEnable
-                0x0800229e       0x6e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+                0x080022a6       0x6e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
  .text.spiFlashWaitBusy
-                0x0800230c       0x50 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+                0x08002314       0x50 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
  .text.spiFlashReset
-                0x0800235c       0x62 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
-                0x0800235c                spiFlashReset
- *fill*         0x080023be        0x2 
+                0x08002364       0x62 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+                0x08002364                spiFlashReset
+ *fill*         0x080023c6        0x2 
  .text.spiFlashInit
-                0x080023c0       0x90 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
-                0x080023c0                spiFlashInit
+                0x080023c8       0x90 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+                0x080023c8                spiFlashInit
  .text.spiFlashRead
-                0x08002450       0x58 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
-                0x08002450                spiFlashRead
+                0x08002458       0x58 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+                0x08002458                spiFlashRead
  .text.spiFlashWrite
-                0x080024a8       0x9a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
-                0x080024a8                spiFlashWrite
+                0x080024b0       0x9a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+                0x080024b0                spiFlashWrite
  .text.spiFlashEraseBlock
-                0x08002542       0x50 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
-                0x08002542                spiFlashEraseBlock
+                0x0800254a       0x50 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+                0x0800254a                spiFlashEraseBlock
  .text.spiFlashErase
-                0x08002592       0x34 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
-                0x08002592                spiFlashErase
+                0x0800259a       0x34 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+                0x0800259a                spiFlashErase
  .text.spiFlashGetAddr
-                0x080025c6        0x6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
-                0x080025c6                spiFlashGetAddr
+                0x080025ce        0x6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+                0x080025ce                spiFlashGetAddr
  .text.spiFlashGetLength
-                0x080025cc        0x6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
-                0x080025cc                spiFlashGetLength
- *fill*         0x080025d2        0x2 
+                0x080025d4        0x6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+                0x080025d4                spiFlashGetLength
+ *fill*         0x080025da        0x2 
  .text.swtimerInit
-                0x080025d4       0x34 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
-                0x080025d4                swtimerInit
+                0x080025dc       0x34 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
+                0x080025dc                swtimerInit
  .text.swtimerISR
-                0x08002608       0x54 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
-                0x08002608                swtimerISR
+                0x08002610       0x54 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
+                0x08002610                swtimerISR
  .text.swtimerSet
-                0x0800265c       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
-                0x0800265c                swtimerSet
+                0x08002664       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
+                0x08002664                swtimerSet
  .text.swtimerStart
-                0x0800267c       0x1c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
-                0x0800267c                swtimerStart
+                0x08002684       0x1c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
+                0x08002684                swtimerStart
  .text.swtimerGetHandle
-                0x08002698       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
-                0x08002698                swtimerGetHandle
+                0x080026a0       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
+                0x080026a0                swtimerGetHandle
  .text.uartInit
-                0x080026b8       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
-                0x080026b8                uartInit
+                0x080026c0       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+                0x080026c0                uartInit
  .text.uartOpen
-                0x080026e0       0xc4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
-                0x080026e0                uartOpen
+                0x080026e8       0xc4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+                0x080026e8                uartOpen
  .text.uartClose
-                0x080027a4       0x14 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
-                0x080027a4                uartClose
+                0x080027ac       0x14 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+                0x080027ac                uartClose
  .text.uartAvailable
-                0x080027b8       0x30 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
-                0x080027b8                uartAvailable
+                0x080027c0       0x30 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+                0x080027c0                uartAvailable
  .text.uartRead
-                0x080027e8       0x3c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
-                0x080027e8                uartRead
+                0x080027f0       0x3c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+                0x080027f0                uartRead
  .text.uartFlush
-                0x08002824       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
-                0x08002824                uartFlush
+                0x0800282c       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+                0x0800282c                uartFlush
  .text.uartWrite
-                0x0800284c       0x38 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
-                0x0800284c                uartWrite
+                0x08002854       0x38 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+                0x08002854                uartWrite
  .text.uartVPrintf
-                0x08002884       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
-                0x08002884                uartVPrintf
+                0x0800288c       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+                0x0800288c                uartVPrintf
  .text.HAL_UART_MspInit
-                0x080028ac       0xb8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
-                0x080028ac                HAL_UART_MspInit
+                0x080028b4       0xb8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+                0x080028b4                HAL_UART_MspInit
  .text.HAL_UART_MspDeInit
-                0x08002964       0x84 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
-                0x08002964                HAL_UART_MspDeInit
- .text.hwInit   0x080029e8       0x9c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
-                0x080029e8                hwInit
+                0x0800296c       0x84 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+                0x0800296c                HAL_UART_MspDeInit
+ .text.hwInit   0x080029f0       0x9c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
+                0x080029f0                hwInit
  .text.HAL_MspInit
-                0x08002a84        0x2 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
-                0x08002a84                HAL_MspInit
- *fill*         0x08002a86        0x2 
+                0x08002a8c        0x2 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                0x08002a8c                HAL_MspInit
+ *fill*         0x08002a8e        0x2 
  .text.HAL_InitTick
-                0x08002a88       0x4c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
-                0x08002a88                HAL_InitTick
+                0x08002a90       0x4c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                0x08002a90                HAL_InitTick
  .text.HAL_Init
-                0x08002ad4       0x2c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
-                0x08002ad4                HAL_Init
+                0x08002adc       0x2c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                0x08002adc                HAL_Init
  .text.HAL_IncTick
-                0x08002b00       0x18 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
-                0x08002b00                HAL_IncTick
+                0x08002b08       0x18 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                0x08002b08                HAL_IncTick
  .text.HAL_GetTick
-                0x08002b18        0xc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
-                0x08002b18                HAL_GetTick
+                0x08002b20        0xc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                0x08002b20                HAL_GetTick
  .text.HAL_Delay
-                0x08002b24       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
-                0x08002b24                HAL_Delay
+                0x08002b2c       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                0x08002b2c                HAL_Delay
  .text.HAL_NVIC_SetPriorityGrouping
-                0x08002b4c       0x24 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
-                0x08002b4c                HAL_NVIC_SetPriorityGrouping
+                0x08002b54       0x24 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+                0x08002b54                HAL_NVIC_SetPriorityGrouping
  .text.HAL_NVIC_SetPriority
-                0x08002b70       0x64 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
-                0x08002b70                HAL_NVIC_SetPriority
+                0x08002b78       0x64 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+                0x08002b78                HAL_NVIC_SetPriority
  .text.HAL_SYSTICK_Config
-                0x08002bd4       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
-                0x08002bd4                HAL_SYSTICK_Config
+                0x08002bdc       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+                0x08002bdc                HAL_SYSTICK_Config
  .text.DMA_SetConfig
-                0x08002bfc       0x34 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+                0x08002c04       0x34 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
  .text.DMA_CalcDMAMUXChannelBaseAndMask
-                0x08002c30       0x48 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+                0x08002c38       0x48 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
  .text.HAL_DMA_Init
-                0x08002c78       0xe4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
-                0x08002c78                HAL_DMA_Init
+                0x08002c80       0xe4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+                0x08002c80                HAL_DMA_Init
  .text.HAL_DMA_DeInit
-                0x08002d5c       0xb0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
-                0x08002d5c                HAL_DMA_DeInit
+                0x08002d64       0xb0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+                0x08002d64                HAL_DMA_DeInit
  .text.HAL_DMA_Start_IT
-                0x08002e0c       0x84 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
-                0x08002e0c                HAL_DMA_Start_IT
+                0x08002e14       0x84 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+                0x08002e14                HAL_DMA_Start_IT
  .text.FLASH_Program_Fast
-                0x08002e90       0x2c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
+                0x08002e98       0x2c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
  .text.HAL_FLASH_Unlock
-                0x08002ebc       0x24 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
-                0x08002ebc                HAL_FLASH_Unlock
+                0x08002ec4       0x24 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
+                0x08002ec4                HAL_FLASH_Unlock
  .text.HAL_FLASH_Lock
-                0x08002ee0       0x18 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
-                0x08002ee0                HAL_FLASH_Lock
+                0x08002ee8       0x18 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
+                0x08002ee8                HAL_FLASH_Lock
  .text.FLASH_WaitForLastOperation
-                0x08002ef8       0x50 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
-                0x08002ef8                FLASH_WaitForLastOperation
+                0x08002f00       0x50 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
+                0x08002f00                FLASH_WaitForLastOperation
  .text.HAL_FLASH_Program
-                0x08002f48       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
-                0x08002f48                HAL_FLASH_Program
+                0x08002f50       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
+                0x08002f50                HAL_FLASH_Program
  .text.FLASH_MassErase
-                0x08002fd0       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
+                0x08002fd8       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
  .text.FLASH_PageErase
-                0x08002ff0       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
-                0x08002ff0                FLASH_PageErase
+                0x08002ff8       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
+                0x08002ff8                FLASH_PageErase
  .text.FLASH_FlushCaches
-                0x08003018       0x60 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
-                0x08003018                FLASH_FlushCaches
+                0x08003020       0x60 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
+                0x08003020                FLASH_FlushCaches
  .text.HAL_FLASHEx_Erase
-                0x08003078       0xd4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
-                0x08003078                HAL_FLASHEx_Erase
+                0x08003080       0xd4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
+                0x08003080                HAL_FLASHEx_Erase
  .text.HAL_GPIO_Init
-                0x0800314c      0x198 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
-                0x0800314c                HAL_GPIO_Init
+                0x08003154      0x198 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+                0x08003154                HAL_GPIO_Init
  .text.HAL_GPIO_DeInit
-                0x080032e4      0x100 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
-                0x080032e4                HAL_GPIO_DeInit
+                0x080032ec      0x100 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+                0x080032ec                HAL_GPIO_DeInit
  .text.HAL_GPIO_ReadPin
-                0x080033e4        0xc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
-                0x080033e4                HAL_GPIO_ReadPin
+                0x080033ec        0xc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+                0x080033ec                HAL_GPIO_ReadPin
  .text.HAL_GPIO_WritePin
-                0x080033f0        0xa CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
-                0x080033f0                HAL_GPIO_WritePin
+                0x080033f8        0xa CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+                0x080033f8                HAL_GPIO_WritePin
  .text.HAL_GPIO_TogglePin
-                0x080033fa       0x12 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
-                0x080033fa                HAL_GPIO_TogglePin
+                0x08003402       0x12 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+                0x08003402                HAL_GPIO_TogglePin
  .text.HAL_PWREx_ControlVoltageScaling
-                0x0800340c       0xb4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
-                0x0800340c                HAL_PWREx_ControlVoltageScaling
+                0x08003414       0xb4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+                0x08003414                HAL_PWREx_ControlVoltageScaling
  .text.HAL_PWREx_DisableUCPDDeadBattery
-                0x080034c0       0x10 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
-                0x080034c0                HAL_PWREx_DisableUCPDDeadBattery
+                0x080034c8       0x10 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+                0x080034c8                HAL_PWREx_DisableUCPDDeadBattery
  .text.HAL_RCC_DeInit
-                0x080034d0       0xb8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
-                0x080034d0                HAL_RCC_DeInit
+                0x080034d8       0xb8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+                0x080034d8                HAL_RCC_DeInit
  .text.HAL_RCC_OscConfig
-                0x08003588      0x420 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
-                0x08003588                HAL_RCC_OscConfig
+                0x08003590      0x420 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+                0x08003590                HAL_RCC_OscConfig
  .text.HAL_RCC_GetSysClockFreq
-                0x080039a8       0x6c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
-                0x080039a8                HAL_RCC_GetSysClockFreq
+                0x080039b0       0x6c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+                0x080039b0                HAL_RCC_GetSysClockFreq
  .text.HAL_RCC_ClockConfig
-                0x08003a14      0x1e8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
-                0x08003a14                HAL_RCC_ClockConfig
+                0x08003a1c      0x1e8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+                0x08003a1c                HAL_RCC_ClockConfig
  .text.HAL_RCC_GetPCLK1Freq
-                0x08003bfc       0x24 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
-                0x08003bfc                HAL_RCC_GetPCLK1Freq
+                0x08003c04       0x24 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+                0x08003c04                HAL_RCC_GetPCLK1Freq
  .text.HAL_RCC_GetPCLK2Freq
-                0x08003c20       0x24 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
-                0x08003c20                HAL_RCC_GetPCLK2Freq
+                0x08003c28       0x24 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+                0x08003c28                HAL_RCC_GetPCLK2Freq
  .text.HAL_RCCEx_PeriphCLKConfig
-                0x08003c44      0x27c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
-                0x08003c44                HAL_RCCEx_PeriphCLKConfig
+                0x08003c4c      0x27c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+                0x08003c4c                HAL_RCCEx_PeriphCLKConfig
  .text.HAL_RTC_WaitForSynchro
-                0x08003ec0       0x30 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
-                0x08003ec0                HAL_RTC_WaitForSynchro
+                0x08003ec8       0x30 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
+                0x08003ec8                HAL_RTC_WaitForSynchro
  .text.RTC_EnterInitMode
-                0x08003ef0       0x46 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
-                0x08003ef0                RTC_EnterInitMode
+                0x08003ef8       0x46 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
+                0x08003ef8                RTC_EnterInitMode
  .text.RTC_ExitInitMode
-                0x08003f36       0x42 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
-                0x08003f36                RTC_ExitInitMode
+                0x08003f3e       0x42 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
+                0x08003f3e                RTC_ExitInitMode
  .text.HAL_RTC_Init
-                0x08003f78       0x8c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
-                0x08003f78                HAL_RTC_Init
+                0x08003f80       0x8c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
+                0x08003f80                HAL_RTC_Init
  .text.HAL_RTCEx_BKUPWrite
-                0x08004004        0xe CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
-                0x08004004                HAL_RTCEx_BKUPWrite
+                0x0800400c        0xe CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
+                0x0800400c                HAL_RTCEx_BKUPWrite
  .text.HAL_RTCEx_BKUPRead
-                0x08004012        0xe CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
-                0x08004012                HAL_RTCEx_BKUPRead
+                0x0800401a        0xe CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
+                0x0800401a                HAL_RTCEx_BKUPRead
  .text.SPI_WaitFifoStateUntilTimeout.constprop.0
-                0x08004020       0xcc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+                0x08004028       0xcc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
  .text.SPI_WaitFlagStateUntilTimeout.constprop.0
-                0x080040ec       0xa4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+                0x080040f4       0xa4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
  .text.SPI_EndRxTransaction
-                0x08004190       0x72 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+                0x08004198       0x72 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
  .text.SPI_EndRxTxTransaction
-                0x08004202       0x4a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+                0x0800420a       0x4a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
  .text.HAL_SPI_Init
-                0x0800424c       0xdc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
-                0x0800424c                HAL_SPI_Init
+                0x08004254       0xdc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+                0x08004254                HAL_SPI_Init
  .text.HAL_SPI_DeInit
-                0x08004328       0x2c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
-                0x08004328                HAL_SPI_DeInit
+                0x08004330       0x2c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+                0x08004330                HAL_SPI_DeInit
  .text.HAL_SPI_Transmit
-                0x08004354      0x192 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
-                0x08004354                HAL_SPI_Transmit
+                0x0800435c      0x192 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+                0x0800435c                HAL_SPI_Transmit
  .text.HAL_SPI_TransmitReceive
-                0x080044e6      0x258 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
-                0x080044e6                HAL_SPI_TransmitReceive
+                0x080044ee      0x258 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+                0x080044ee                HAL_SPI_TransmitReceive
  .text.HAL_SPI_Receive
-                0x0800473e      0x170 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
-                0x0800473e                HAL_SPI_Receive
+                0x08004746      0x170 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+                0x08004746                HAL_SPI_Receive
  .text.UART_EndTxTransfer
-                0x080048ae       0x34 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
- *fill*         0x080048e2        0x2 
+                0x080048b6       0x34 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+ *fill*         0x080048ea        0x2 
  .text.UART_EndRxTransfer
-                0x080048e4       0x58 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x080048ec       0x58 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
  .text.HAL_UART_DeInit
-                0x0800493c       0x3c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
-                0x0800493c                HAL_UART_DeInit
+                0x08004944       0x3c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x08004944                HAL_UART_DeInit
  .text.HAL_UART_RxCpltCallback
-                0x08004978        0x2 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
-                0x08004978                HAL_UART_RxCpltCallback
+                0x08004980        0x2 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x08004980                HAL_UART_RxCpltCallback
  .text.HAL_UART_RxHalfCpltCallback
-                0x0800497a        0x2 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
-                0x0800497a                HAL_UART_RxHalfCpltCallback
+                0x08004982        0x2 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x08004982                HAL_UART_RxHalfCpltCallback
  .text.HAL_UART_ErrorCallback
-                0x0800497c        0x2 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
-                0x0800497c                HAL_UART_ErrorCallback
+                0x08004984        0x2 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x08004984                HAL_UART_ErrorCallback
  .text.UART_DMAError
-                0x0800497e       0x4a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x08004986       0x4a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
  .text.HAL_UARTEx_RxEventCallback
-                0x080049c8        0x2 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
-                0x080049c8                HAL_UARTEx_RxEventCallback
+                0x080049d0        0x2 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x080049d0                HAL_UARTEx_RxEventCallback
  .text.UART_DMARxHalfCplt
-                0x080049ca       0x1c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x080049d2       0x1c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
  .text.UART_DMAReceiveCplt
-                0x080049e6       0x8a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x080049ee       0x8a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
  .text.UART_SetConfig
-                0x08004a70      0x294 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
-                0x08004a70                UART_SetConfig
+                0x08004a78      0x294 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x08004a78                UART_SetConfig
  .text.UART_AdvFeatureConfig
-                0x08004d04       0xa8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
-                0x08004d04                UART_AdvFeatureConfig
+                0x08004d0c       0xa8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x08004d0c                UART_AdvFeatureConfig
  .text.UART_WaitOnFlagUntilTimeout
-                0x08004dac       0xc4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
-                0x08004dac                UART_WaitOnFlagUntilTimeout
+                0x08004db4       0xc4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x08004db4                UART_WaitOnFlagUntilTimeout
  .text.HAL_UART_Transmit
-                0x08004e70       0xba CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
-                0x08004e70                HAL_UART_Transmit
+                0x08004e78       0xba CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x08004e78                HAL_UART_Transmit
  .text.UART_CheckIdleState
-                0x08004f2a       0x6a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
-                0x08004f2a                UART_CheckIdleState
+                0x08004f32       0x6a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x08004f32                UART_CheckIdleState
  .text.UART_Start_Receive_DMA
-                0x08004f94       0xa8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
-                0x08004f94                UART_Start_Receive_DMA
+                0x08004f9c       0xa8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x08004f9c                UART_Start_Receive_DMA
  .text.HAL_UART_Receive_DMA
-                0x0800503c       0x54 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
-                0x0800503c                HAL_UART_Receive_DMA
+                0x08005044       0x54 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x08005044                HAL_UART_Receive_DMA
  .text.HAL_RS485Ex_Init
-                0x08005090       0x7e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
-                0x08005090                HAL_RS485Ex_Init
- .text.memcpy   0x0800510e       0x1c c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
-                0x0800510e                memcpy
+                0x08005098       0x7e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
+                0x08005098                HAL_RS485Ex_Init
+ .text.memcpy   0x08005116       0x1c c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
+                0x08005116                memcpy
  *(.glue_7)
- .glue_7        0x0800512a        0x0 linker stubs
+ .glue_7        0x08005132        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0800512a        0x0 linker stubs
+ .glue_7t       0x08005132        0x0 linker stubs
  *(.eh_frame)
- *fill*         0x0800512a        0x2 
- .eh_frame      0x0800512c        0x0 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ *fill*         0x08005132        0x2 
+ .eh_frame      0x08005134        0x0 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x0800512c        0x4 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x0800512c                _init
- .init          0x08005130        0x8 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x08005134        0x4 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x08005134                _init
+ .init          0x08005138        0x8 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x08005138        0x4 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x08005138                _fini
- .fini          0x0800513c        0x8 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
-                0x08005144                . = ALIGN (0x4)
-                0x08005144                _etext = .
+ .fini          0x08005140        0x4 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x08005140                _fini
+ .fini          0x08005144        0x8 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x0800514c                . = ALIGN (0x4)
+                0x0800514c                _etext = .
 
-.vfp11_veneer   0x08005144        0x0
- .vfp11_veneer  0x08005144        0x0 linker stubs
+.vfp11_veneer   0x0800514c        0x0
+ .vfp11_veneer  0x0800514c        0x0 linker stubs
 
-.v4_bx          0x08005144        0x0
- .v4_bx         0x08005144        0x0 linker stubs
+.v4_bx          0x0800514c        0x0
+ .v4_bx         0x0800514c        0x0 linker stubs
 
-.iplt           0x08005144        0x0
- .iplt          0x08005144        0x0 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x0800514c        0x0
+ .iplt          0x0800514c        0x0 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x08005144      0x58c
-                0x08005144                . = ALIGN (0x4)
+.rodata         0x0800514c      0x5a0
+                0x0800514c                . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
  .rodata.HardFault_Handler_C.str1.1
-                0x08005144        0xa CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/stm32g4xx_it.c.obj
+                0x0800514c        0xa CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/stm32g4xx_it.c.obj
  .rodata.MemManage_Handler_C.str1.1
-                0x0800514e        0xa CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/stm32g4xx_it.c.obj
+                0x08005156        0xa CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/stm32g4xx_it.c.obj
  .rodata.BusFault_Handler_C.str1.1
-                0x08005158        0x9 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/stm32g4xx_it.c.obj
+                0x08005160        0x9 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/stm32g4xx_it.c.obj
  .rodata.UsageFault_Handler_C.str1.1
-                0x08005161        0xb CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/stm32g4xx_it.c.obj
+                0x08005169        0xb CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/stm32g4xx_it.c.obj
  .rodata.AHBPrescTable
-                0x0800516c       0x10 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/system_stm32g4xx.c.obj
-                0x0800516c                AHBPrescTable
+                0x08005174       0x10 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/system_stm32g4xx.c.obj
+                0x08005174                AHBPrescTable
  .rodata.APBPrescTable
-                0x0800517c        0x8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/system_stm32g4xx.c.obj
-                0x0800517c                APBPrescTable
+                0x08005184        0x8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/system_stm32g4xx.c.obj
+                0x08005184                APBPrescTable
  .rodata.apInit.str1.1
-                0x08005184       0x6a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/ap.c.obj
-                                 0x6c (size before relaxing)
+                0x0800518c       0x7f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/ap.c.obj
+                                 0x81 (size before relaxing)
  .rodata.bootJumpFirm.str1.1
-                0x080051ee       0x27 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/boot/boot.c.obj
- *fill*         0x08005215        0x1 
+                0x0800520b       0x27 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/boot/boot.c.obj
  .rodata.util_crc_table
-                0x08005216      0x200 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/util.c.obj
-                0x08005216                util_crc_table
+                0x08005232      0x200 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/util.c.obj
+                0x08005232                util_crc_table
  .rodata.buttonInit.str1.1
-                0x08005416       0x2b CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
+                0x08005432       0x2b CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
  .rodata.faultInit.str1.1
-                0x08005441       0xb1 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
+                0x0800545d       0xb1 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
                                  0xb3 (size before relaxing)
  .rodata.flashInit.str1.1
-                0x080054f2       0x12 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
+                0x0800550e       0x12 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
  .rodata.resetInit.str1.1
-                0x08005504       0x1b CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
+                0x08005520       0x1b CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
  .rodata.str1.1
-                0x0800551f       0x59 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
+                0x0800553b       0x59 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
  .rodata.mode_bit_str
-                0x08005578        0x8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
+                0x08005594        0x8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
  .rodata.reset_bit_str
-                0x08005580       0x10 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
+                0x0800559c       0x10 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
  .rodata.rtcInit.str1.1
-                0x08005590       0x10 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
+                0x080055ac       0x10 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
                                  0x16 (size before relaxing)
  .rodata.spiFlashInit.str1.1
-                0x080055a0       0x85 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+                0x080055bc       0x85 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
  .rodata.hwInit.str1.1
-                0x08005625       0x80 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
+                0x08005641       0x80 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
                                  0x82 (size before relaxing)
  .rodata.CSWTCH.60
-                0x080056a5        0x3 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x080056c1        0x3 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
  .rodata.CSWTCH.61
-                0x080056a8        0xd CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
- *fill*         0x080056b5        0x1 
+                0x080056c4        0xd CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+ *fill*         0x080056d1        0x1 
  .rodata.UARTPrescTable
-                0x080056b6       0x18 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
-                0x080056b6                UARTPrescTable
-                0x080056d0                . = ALIGN (0x4)
- *fill*         0x080056ce        0x2 
+                0x080056d2       0x18 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x080056d2                UARTPrescTable
+                0x080056ec                . = ALIGN (0x4)
+ *fill*         0x080056ea        0x2 
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x080056d0        0x8
-                0x080056d0                __exidx_start = .
+.ARM            0x080056ec        0x8
+                0x080056ec                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x080056d0        0x8 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
-                0x080056d8                __exidx_end = .
+ .ARM.exidx     0x080056ec        0x8 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+                0x080056f4                __exidx_end = .
 
-.rel.dyn        0x080056d8        0x0
- .rel.iplt      0x080056d8        0x0 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x080056f4        0x0
+ .rel.iplt      0x080056f4        0x0 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.preinit_array  0x080056d8        0x0
-                0x080056d8                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x080056f4        0x0
+                0x080056f4                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x080056d8                PROVIDE (__preinit_array_end = .)
+                0x080056f4                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x080056d8        0x4
-                0x080056d8                PROVIDE (__init_array_start = .)
+.init_array     0x080056f4        0x4
+                0x080056f4                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x080056d8        0x4 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x080056dc                PROVIDE (__init_array_end = .)
+ .init_array    0x080056f4        0x4 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x080056f8                PROVIDE (__init_array_end = .)
 
-.fini_array     0x080056dc        0x4
+.fini_array     0x080056f8        0x4
                 [!provide]                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x080056dc        0x4 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x080056f8        0x4 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 [!provide]                PROVIDE (__fini_array_end = .)
-                0x080056e0                _sidata = LOADADDR (.data)
+                0x080056fc                _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x30 load address 0x080056e0
+.data           0x20000000       0x30 load address 0x080056fc
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -14276,9 +14279,7 @@ LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2
  .data.is_run_fw
                 0x20000004        0x1 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/ap.c.obj
                 0x20000004                is_run_fw
- .data.is_enable
-                0x20000005        0x1 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
- *fill*         0x20000006        0x2 
+ *fill*         0x20000005        0x3 
  .data.uwTickFreq
                 0x20000008        0x4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
                 0x20000008                uwTickFreq
@@ -14290,11 +14291,11 @@ LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2
                 0x20000030                . = ALIGN (0x4)
                 0x20000030                _edata = .
 
-.igot.plt       0x20000030        0x0 load address 0x08005710
+.igot.plt       0x20000030        0x0 load address 0x0800572c
  .igot.plt      0x20000030        0x0 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 0x20000030                . = ALIGN (0x4)
 
-.bss            0x20000030     0x1140 load address 0x08005710
+.bss            0x20000030     0x1140 load address 0x0800572c
                 0x20000030                _sbss = .
                 0x20000030                __bss_start__ = _sbss
  *(.bss)
@@ -14358,7 +14359,7 @@ LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2
                 0x20001170                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x20001170      0x600 load address 0x08005710
+                0x20001170      0x600 load address 0x0800572c
                 0x20001170                . = ALIGN (0x8)
                 [!provide]                PROVIDE (end = .)
                 0x20001170                PROVIDE (_end = .)
@@ -14374,8 +14375,8 @@ LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2
  .noinit        0x20007800       0x4c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
                 0x2000784c                . = ALIGN (0x4)
 
-.fw_flash_end   0x08005710        0x0
-                0x08005710                _fw_flash_end = .
+.fw_flash_end   0x0800572c        0x0
+                0x0800572c                _fw_flash_end = .
 
 /DISCARD/
  libc.a(*)
@@ -14491,7 +14492,7 @@ LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2
 LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
 LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_frame    0x00000000     0x34c8
+.debug_frame    0x00000000     0x34e0
  .debug_frame   0x00000000       0x2c c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
  .debug_frame   0x0000002c       0x20 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
  .debug_frame   0x0000004c       0x7c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/bsp.c.obj
@@ -14506,82 +14507,82 @@ LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2
  .debug_frame   0x000003f8       0xc4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
  .debug_frame   0x000004bc       0x40 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/util.c.obj
  .debug_frame   0x000004fc      0x110 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
- .debug_frame   0x0000060c      0x198 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
- .debug_frame   0x000007a4       0xfc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
- .debug_frame   0x000008a0       0x50 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
- .debug_frame   0x000008f0       0xd8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
- .debug_frame   0x000009c8       0x84 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
- .debug_frame   0x00000a4c       0x60 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
- .debug_frame   0x00000aac       0x68 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
- .debug_frame   0x00000b14       0xac CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
- .debug_frame   0x00000bc0      0x128 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
- .debug_frame   0x00000ce8      0x168 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
- .debug_frame   0x00000e50      0x178 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
- .debug_frame   0x00000fc8       0xb0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
- .debug_frame   0x00001078      0x1b4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
- .debug_frame   0x0000122c       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
- .debug_frame   0x00001254      0x280 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
- .debug_frame   0x000014d4      0x158 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
- .debug_frame   0x0000162c      0x178 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
- .debug_frame   0x000017a4      0x124 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
- .debug_frame   0x000018c8       0xe0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
- .debug_frame   0x000019a8       0xd4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
- .debug_frame   0x00001a7c      0x268 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
- .debug_frame   0x00001ce4      0x164 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
- .debug_frame   0x00001e48      0x19c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
- .debug_frame   0x00001fe4      0x280 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
- .debug_frame   0x00002264      0x3b8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
- .debug_frame   0x0000261c      0x5bc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
- .debug_frame   0x00002bd8      0x6d0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
- .debug_frame   0x000032a8      0x198 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
- .debug_frame   0x00003440       0x2c c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x0000346c       0x34 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
- .debug_frame   0x000034a0       0x28 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x0000060c      0x1b0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
+ .debug_frame   0x000007bc       0xfc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
+ .debug_frame   0x000008b8       0x50 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
+ .debug_frame   0x00000908       0xd8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
+ .debug_frame   0x000009e0       0x84 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
+ .debug_frame   0x00000a64       0x60 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
+ .debug_frame   0x00000ac4       0x68 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
+ .debug_frame   0x00000b2c       0xac CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
+ .debug_frame   0x00000bd8      0x128 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
+ .debug_frame   0x00000d00      0x168 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
+ .debug_frame   0x00000e68      0x178 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+ .debug_frame   0x00000fe0       0xb0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
+ .debug_frame   0x00001090      0x1b4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+ .debug_frame   0x00001244       0x28 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
+ .debug_frame   0x0000126c      0x280 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+ .debug_frame   0x000014ec      0x158 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+ .debug_frame   0x00001644      0x178 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+ .debug_frame   0x000017bc      0x124 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
+ .debug_frame   0x000018e0       0xe0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
+ .debug_frame   0x000019c0       0xd4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+ .debug_frame   0x00001a94      0x268 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+ .debug_frame   0x00001cfc      0x164 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+ .debug_frame   0x00001e60      0x19c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+ .debug_frame   0x00001ffc      0x280 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
+ .debug_frame   0x0000227c      0x3b8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
+ .debug_frame   0x00002634      0x5bc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+ .debug_frame   0x00002bf0      0x6d0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+ .debug_frame   0x000032c0      0x198 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
+ .debug_frame   0x00003458       0x2c c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00003484       0x34 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x000034b8       0x28 c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
 
-.debug_info     0x00000000    0x1f5b1
+.debug_info     0x00000000    0x1f662
  .debug_info    0x00000000      0x9ed CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/bsp.c.obj
  .debug_info    0x000009ed      0x23f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/stm32g4xx_it.c.obj
  .debug_info    0x00000c2c      0x5bd CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/system_stm32g4xx.c.obj
  .debug_info    0x000011e9       0xdf CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/main.c.obj
- .debug_info    0x000012c8      0x3b3 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/ap.c.obj
- .debug_info    0x0000167b      0x6b9 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/boot/boot.c.obj
- .debug_info    0x00001d34      0x4a6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/cmd_thread.c.obj
- .debug_info    0x000021da      0x480 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
- .debug_info    0x0000265a      0xda4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/process/cmd_boot.c.obj
- .debug_info    0x000033fe       0x22 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
- .debug_info    0x00003420      0x41f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
- .debug_info    0x0000383f      0x203 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/util.c.obj
- .debug_info    0x00003a42      0x9be CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
- .debug_info    0x00004400      0xe42 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
- .debug_info    0x00005242      0x8bd CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
- .debug_info    0x00005aff      0x57e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
- .debug_info    0x0000607d      0x721 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
- .debug_info    0x0000679e      0x7df CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
- .debug_info    0x00006f7d      0x6d3 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
- .debug_info    0x00007650      0x20d CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
- .debug_info    0x0000785d      0x5b9 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
- .debug_info    0x00007e16      0xedb CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
- .debug_info    0x00008cf1     0x12fa CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
- .debug_info    0x00009feb      0xc2a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
- .debug_info    0x0000ac15      0x355 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
- .debug_info    0x0000af6a     0x161d CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
- .debug_info    0x0000c587      0x35c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
- .debug_info    0x0000c8e3      0xccd CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
- .debug_info    0x0000d5b0     0x1035 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
- .debug_info    0x0000e5e5      0xa7b CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
- .debug_info    0x0000f060      0x950 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
- .debug_info    0x0000f9b0      0xd0b CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
- .debug_info    0x000106bb      0x865 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
- .debug_info    0x00010f20      0x9f9 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
- .debug_info    0x00011919      0xf32 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
- .debug_info    0x0001284b      0xe15 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
- .debug_info    0x00013660     0x128b CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
- .debug_info    0x000148eb     0x1586 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
- .debug_info    0x00015e71     0x2357 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
- .debug_info    0x000181c8     0x6140 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
- .debug_info    0x0001e308     0x12a9 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
+ .debug_info    0x000012c8      0x3ca CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/ap.c.obj
+ .debug_info    0x00001692      0x6b9 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/boot/boot.c.obj
+ .debug_info    0x00001d4b      0x4a6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/cmd_thread.c.obj
+ .debug_info    0x000021f1      0x480 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
+ .debug_info    0x00002671      0xda4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/process/cmd_boot.c.obj
+ .debug_info    0x00003415       0x22 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
+ .debug_info    0x00003437      0x41f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
+ .debug_info    0x00003856      0x203 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/util.c.obj
+ .debug_info    0x00003a59      0x9be CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
+ .debug_info    0x00004417      0xedc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
+ .debug_info    0x000052f3      0x8bd CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
+ .debug_info    0x00005bb0      0x57e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
+ .debug_info    0x0000612e      0x721 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
+ .debug_info    0x0000684f      0x7df CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
+ .debug_info    0x0000702e      0x6d3 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
+ .debug_info    0x00007701      0x20d CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
+ .debug_info    0x0000790e      0x5b9 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
+ .debug_info    0x00007ec7      0xedb CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
+ .debug_info    0x00008da2     0x12fa CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
+ .debug_info    0x0000a09c      0xc2a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+ .debug_info    0x0000acc6      0x355 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
+ .debug_info    0x0000b01b     0x161d CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+ .debug_info    0x0000c638      0x35c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
+ .debug_info    0x0000c994      0xccd CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+ .debug_info    0x0000d661     0x1035 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+ .debug_info    0x0000e696      0xa7b CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+ .debug_info    0x0000f111      0x950 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
+ .debug_info    0x0000fa61      0xd0b CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
+ .debug_info    0x0001076c      0x865 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+ .debug_info    0x00010fd1      0x9f9 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+ .debug_info    0x000119ca      0xf32 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+ .debug_info    0x000128fc      0xe15 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+ .debug_info    0x00013711     0x128b CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
+ .debug_info    0x0001499c     0x1586 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
+ .debug_info    0x00015f22     0x2357 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+ .debug_info    0x00018279     0x6140 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+ .debug_info    0x0001e3b9     0x12a9 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
 
-.debug_abbrev   0x00000000     0x5c86
+.debug_abbrev   0x00000000     0x5ccb
  .debug_abbrev  0x00000000      0x2b5 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/bsp.c.obj
  .debug_abbrev  0x000002b5      0x119 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/stm32g4xx_it.c.obj
  .debug_abbrev  0x000003ce      0x11c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/system_stm32g4xx.c.obj
@@ -14595,36 +14596,36 @@ LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2
  .debug_abbrev  0x00000e20      0x12f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
  .debug_abbrev  0x00000f4f      0x114 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/util.c.obj
  .debug_abbrev  0x00001063      0x36a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
- .debug_abbrev  0x000013cd      0x398 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
- .debug_abbrev  0x00001765      0x290 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
- .debug_abbrev  0x000019f5      0x1e5 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
- .debug_abbrev  0x00001bda      0x1ea CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
- .debug_abbrev  0x00001dc4      0x298 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
- .debug_abbrev  0x0000205c      0x22c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
- .debug_abbrev  0x00002288      0x15e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
- .debug_abbrev  0x000023e6      0x259 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
- .debug_abbrev  0x0000263f      0x1e3 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
- .debug_abbrev  0x00002822      0x38e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
- .debug_abbrev  0x00002bb0      0x323 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
- .debug_abbrev  0x00002ed3      0x179 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
- .debug_abbrev  0x0000304c      0x348 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
- .debug_abbrev  0x00003394      0x134 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
- .debug_abbrev  0x000034c8      0x2ad CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
- .debug_abbrev  0x00003775      0x369 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
- .debug_abbrev  0x00003ade      0x27c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
- .debug_abbrev  0x00003d5a      0x377 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
- .debug_abbrev  0x000040d1      0x311 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
- .debug_abbrev  0x000043e2      0x1e7 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
- .debug_abbrev  0x000045c9      0x26b CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
- .debug_abbrev  0x00004834      0x316 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
- .debug_abbrev  0x00004b4a      0x291 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
- .debug_abbrev  0x00004ddb      0x215 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
- .debug_abbrev  0x00004ff0      0x27c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
- .debug_abbrev  0x0000526c      0x30a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
- .debug_abbrev  0x00005576      0x40c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
- .debug_abbrev  0x00005982      0x304 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
+ .debug_abbrev  0x000013cd      0x3dd CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
+ .debug_abbrev  0x000017aa      0x290 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
+ .debug_abbrev  0x00001a3a      0x1e5 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
+ .debug_abbrev  0x00001c1f      0x1ea CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
+ .debug_abbrev  0x00001e09      0x298 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
+ .debug_abbrev  0x000020a1      0x22c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
+ .debug_abbrev  0x000022cd      0x15e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
+ .debug_abbrev  0x0000242b      0x259 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
+ .debug_abbrev  0x00002684      0x1e3 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
+ .debug_abbrev  0x00002867      0x38e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
+ .debug_abbrev  0x00002bf5      0x323 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+ .debug_abbrev  0x00002f18      0x179 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
+ .debug_abbrev  0x00003091      0x348 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+ .debug_abbrev  0x000033d9      0x134 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
+ .debug_abbrev  0x0000350d      0x2ad CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+ .debug_abbrev  0x000037ba      0x369 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+ .debug_abbrev  0x00003b23      0x27c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+ .debug_abbrev  0x00003d9f      0x377 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
+ .debug_abbrev  0x00004116      0x311 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
+ .debug_abbrev  0x00004427      0x1e7 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+ .debug_abbrev  0x0000460e      0x26b CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+ .debug_abbrev  0x00004879      0x316 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+ .debug_abbrev  0x00004b8f      0x291 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+ .debug_abbrev  0x00004e20      0x215 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
+ .debug_abbrev  0x00005035      0x27c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
+ .debug_abbrev  0x000052b1      0x30a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+ .debug_abbrev  0x000055bb      0x40c CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+ .debug_abbrev  0x000059c7      0x304 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
 
-.debug_loc      0x00000000    0x12755
+.debug_loc      0x00000000    0x12811
  .debug_loc     0x00000000       0x57 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/bsp.c.obj
  .debug_loc     0x00000057       0xc8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/stm32g4xx_it.c.obj
  .debug_loc     0x0000011f       0xac CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/system_stm32g4xx.c.obj
@@ -14636,36 +14637,36 @@ LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2
  .debug_loc     0x000014bc      0x351 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
  .debug_loc     0x0000180d      0x197 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/util.c.obj
  .debug_loc     0x000019a4      0xebc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
- .debug_loc     0x00002860      0x551 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
- .debug_loc     0x00002db1      0x7ec CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
- .debug_loc     0x0000359d      0x109 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
- .debug_loc     0x000036a6      0x525 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
- .debug_loc     0x00003bcb      0x1ee CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
- .debug_loc     0x00003db9       0xfc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
- .debug_loc     0x00003eb5       0x4a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
- .debug_loc     0x00003eff       0x6a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
- .debug_loc     0x00003f69      0x1fe CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
- .debug_loc     0x00004167      0x7cd CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
- .debug_loc     0x00004934      0x609 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
- .debug_loc     0x00004f3d      0x147 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
- .debug_loc     0x00005084      0x59f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
- .debug_loc     0x00005623       0x24 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
- .debug_loc     0x00005647      0x267 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
- .debug_loc     0x000058ae      0x5c5 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
- .debug_loc     0x00005e73      0x878 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
- .debug_loc     0x000066eb      0x558 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
- .debug_loc     0x00006c43      0x6ca CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
- .debug_loc     0x0000730d      0x2fb CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
- .debug_loc     0x00007608      0x6a3 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
- .debug_loc     0x00007cab      0x887 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
- .debug_loc     0x00008532      0x906 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
- .debug_loc     0x00008e38      0xa6d CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
- .debug_loc     0x000098a5      0xc15 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
- .debug_loc     0x0000a4ba     0x1caf CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
- .debug_loc     0x0000c169     0x5a17 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
- .debug_loc     0x00011b80      0xbd5 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
+ .debug_loc     0x00002860      0x60d CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
+ .debug_loc     0x00002e6d      0x7ec CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
+ .debug_loc     0x00003659      0x109 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
+ .debug_loc     0x00003762      0x525 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
+ .debug_loc     0x00003c87      0x1ee CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
+ .debug_loc     0x00003e75       0xfc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
+ .debug_loc     0x00003f71       0x4a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
+ .debug_loc     0x00003fbb       0x6a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
+ .debug_loc     0x00004025      0x1fe CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
+ .debug_loc     0x00004223      0x7cd CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
+ .debug_loc     0x000049f0      0x609 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+ .debug_loc     0x00004ff9      0x147 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
+ .debug_loc     0x00005140      0x59f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+ .debug_loc     0x000056df       0x24 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
+ .debug_loc     0x00005703      0x267 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+ .debug_loc     0x0000596a      0x5c5 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+ .debug_loc     0x00005f2f      0x878 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+ .debug_loc     0x000067a7      0x558 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
+ .debug_loc     0x00006cff      0x6ca CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
+ .debug_loc     0x000073c9      0x2fb CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+ .debug_loc     0x000076c4      0x6a3 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+ .debug_loc     0x00007d67      0x887 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+ .debug_loc     0x000085ee      0x906 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+ .debug_loc     0x00008ef4      0xa6d CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
+ .debug_loc     0x00009961      0xc15 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
+ .debug_loc     0x0000a576     0x1caf CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+ .debug_loc     0x0000c225     0x5a17 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+ .debug_loc     0x00011c3c      0xbd5 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
 
-.debug_aranges  0x00000000     0x13e8
+.debug_aranges  0x00000000     0x13f0
  .debug_aranges
                 0x00000000       0x40 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/bsp.c.obj
  .debug_aranges
@@ -14693,63 +14694,63 @@ LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2
  .debug_aranges
                 0x000002a8       0x50 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
  .debug_aranges
-                0x000002f8       0xa8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
+                0x000002f8       0xb0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
  .debug_aranges
-                0x000003a0       0x60 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
+                0x000003a8       0x60 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
  .debug_aranges
-                0x00000400       0x30 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
+                0x00000408       0x30 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
  .debug_aranges
-                0x00000430       0x40 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
+                0x00000438       0x40 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
  .debug_aranges
-                0x00000470       0x40 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
+                0x00000478       0x40 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
  .debug_aranges
-                0x000004b0       0x38 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
+                0x000004b8       0x38 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
  .debug_aranges
-                0x000004e8       0x30 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
+                0x000004f0       0x30 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
  .debug_aranges
-                0x00000518       0x58 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
+                0x00000520       0x58 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
  .debug_aranges
-                0x00000570       0x68 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
+                0x00000578       0x68 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
  .debug_aranges
-                0x000005d8       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
+                0x000005e0       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
  .debug_aranges
-                0x00000660       0x80 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+                0x00000668       0x80 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
  .debug_aranges
-                0x000006e0       0x58 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
+                0x000006e8       0x58 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
  .debug_aranges
-                0x00000738       0x98 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+                0x00000740       0x98 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
  .debug_aranges
-                0x000007d0       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
+                0x000007d8       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
  .debug_aranges
-                0x000007f0      0x128 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                0x000007f8      0x128 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
  .debug_aranges
-                0x00000918       0xa8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+                0x00000920       0xa8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
  .debug_aranges
-                0x000009c0       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+                0x000009c8       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
  .debug_aranges
-                0x00000a48       0x78 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
+                0x00000a50       0x78 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
  .debug_aranges
-                0x00000ac0       0x68 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
+                0x00000ac8       0x68 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
  .debug_aranges
-                0x00000b28       0x58 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+                0x00000b30       0x58 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
  .debug_aranges
-                0x00000b80      0x128 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+                0x00000b88      0x128 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
  .debug_aranges
-                0x00000ca8       0x90 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+                0x00000cb0       0x90 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
  .debug_aranges
-                0x00000d38       0x98 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+                0x00000d40       0x98 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
  .debug_aranges
-                0x00000dd0       0xd8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
+                0x00000dd8       0xd8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
  .debug_aranges
-                0x00000ea8      0x128 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
+                0x00000eb0      0x128 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
  .debug_aranges
-                0x00000fd0      0x190 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+                0x00000fd8      0x190 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
  .debug_aranges
-                0x00001160      0x200 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+                0x00001168      0x200 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
  .debug_aranges
-                0x00001360       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
+                0x00001368       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
 
-.debug_ranges   0x00000000     0x1b20
+.debug_ranges   0x00000000     0x1b30
  .debug_ranges  0x00000000       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/bsp.c.obj
  .debug_ranges  0x00000088       0x40 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/stm32g4xx_it.c.obj
  .debug_ranges  0x000000c8       0x18 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/system_stm32g4xx.c.obj
@@ -14763,34 +14764,34 @@ LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2
  .debug_ranges  0x00000338      0x100 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
  .debug_ranges  0x00000438       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/util.c.obj
  .debug_ranges  0x00000458       0xe0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
- .debug_ranges  0x00000538      0x190 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
- .debug_ranges  0x000006c8       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
- .debug_ranges  0x00000750       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
- .debug_ranges  0x00000770       0x80 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
- .debug_ranges  0x000007f0       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
- .debug_ranges  0x00000878       0xa0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
- .debug_ranges  0x00000918       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
- .debug_ranges  0x00000938       0x78 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
- .debug_ranges  0x000009b0       0x58 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
- .debug_ranges  0x00000a08       0xa8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
- .debug_ranges  0x00000ab0       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
- .debug_ranges  0x00000b38       0x48 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
- .debug_ranges  0x00000b80       0xd0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
- .debug_ranges  0x00000c50       0x10 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
- .debug_ranges  0x00000c60      0x118 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
- .debug_ranges  0x00000d78      0x150 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
- .debug_ranges  0x00000ec8       0x90 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
- .debug_ranges  0x00000f58       0x68 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
- .debug_ranges  0x00000fc0      0x120 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
- .debug_ranges  0x000010e0       0x68 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
- .debug_ranges  0x00001148      0x118 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
- .debug_ranges  0x00001260       0x98 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
- .debug_ranges  0x000012f8       0xc8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
- .debug_ranges  0x000013c0       0xc8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
- .debug_ranges  0x00001488      0x118 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
- .debug_ranges  0x000015a0      0x228 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
- .debug_ranges  0x000017c8      0x2e0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
- .debug_ranges  0x00001aa8       0x78 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
+ .debug_ranges  0x00000538      0x1a0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
+ .debug_ranges  0x000006d8       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
+ .debug_ranges  0x00000760       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
+ .debug_ranges  0x00000780       0x80 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
+ .debug_ranges  0x00000800       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
+ .debug_ranges  0x00000888       0xa0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
+ .debug_ranges  0x00000928       0x20 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
+ .debug_ranges  0x00000948       0x78 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
+ .debug_ranges  0x000009c0       0x58 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
+ .debug_ranges  0x00000a18       0xa8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
+ .debug_ranges  0x00000ac0       0x88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+ .debug_ranges  0x00000b48       0x48 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
+ .debug_ranges  0x00000b90       0xd0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+ .debug_ranges  0x00000c60       0x10 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
+ .debug_ranges  0x00000c70      0x118 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+ .debug_ranges  0x00000d88      0x150 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+ .debug_ranges  0x00000ed8       0x90 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+ .debug_ranges  0x00000f68       0x68 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
+ .debug_ranges  0x00000fd0      0x120 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
+ .debug_ranges  0x000010f0       0x68 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+ .debug_ranges  0x00001158      0x118 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+ .debug_ranges  0x00001270       0x98 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+ .debug_ranges  0x00001308       0xc8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+ .debug_ranges  0x000013d0       0xc8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
+ .debug_ranges  0x00001498      0x118 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
+ .debug_ranges  0x000015b0      0x228 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+ .debug_ranges  0x000017d8      0x2e0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+ .debug_ranges  0x00001ab8       0x78 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
 
 .debug_macro    0x00000000    0x265af
  .debug_macro   0x00000000      0x3fe CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/bsp.c.obj
@@ -14936,48 +14937,48 @@ LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2
  .debug_macro   0x00026124      0x255 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
  .debug_macro   0x00026379      0x236 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
 
-.debug_line     0x00000000    0x2a339
+.debug_line     0x00000000    0x2a372
  .debug_line    0x00000000      0xb9a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/bsp.c.obj
  .debug_line    0x00000b9a      0xb4e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/stm32g4xx_it.c.obj
  .debug_line    0x000016e8      0x4a7 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/device/system_stm32g4xx.c.obj
  .debug_line    0x00001b8f      0xbe4 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/main.c.obj
- .debug_line    0x00002773      0xd57 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/ap.c.obj
- .debug_line    0x000034ca      0xe79 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/boot/boot.c.obj
- .debug_line    0x00004343      0xd27 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/cmd_thread.c.obj
- .debug_line    0x0000506a      0xcbe CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
- .debug_line    0x00005d28      0xf66 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/process/cmd_boot.c.obj
- .debug_line    0x00006c8e      0x10d CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
- .debug_line    0x00006d9b      0x750 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
- .debug_line    0x000074eb      0x53f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/util.c.obj
- .debug_line    0x00007a2a      0xf56 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
- .debug_line    0x00008980     0x1190 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
- .debug_line    0x00009b10      0xf2d CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
- .debug_line    0x0000aa3d      0xbdc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
- .debug_line    0x0000b619      0xd53 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
- .debug_line    0x0000c36c      0xbdb CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
- .debug_line    0x0000cf47      0xb4f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
- .debug_line    0x0000da96      0xb15 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
- .debug_line    0x0000e5ab      0xc43 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
- .debug_line    0x0000f1ee      0xe59 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
- .debug_line    0x00010047      0xee1 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
- .debug_line    0x00010f28     0x1056 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
- .debug_line    0x00011f7e      0xc9f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
- .debug_line    0x00012c1d      0xfa6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
- .debug_line    0x00013bc3      0xb85 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
- .debug_line    0x00014748      0xc5f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
- .debug_line    0x000153a7      0xd8e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
- .debug_line    0x00016135     0x11ba CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
- .debug_line    0x000172ef      0xd88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
- .debug_line    0x00018077     0x1144 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
- .debug_line    0x000191bb      0xcfd CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
- .debug_line    0x00019eb8      0xe68 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
- .debug_line    0x0001ad20     0x1353 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
- .debug_line    0x0001c073     0x12ca CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
- .debug_line    0x0001d33d     0x143f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
- .debug_line    0x0001e77c     0x19bf CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
- .debug_line    0x0002013b     0x2ca2 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
- .debug_line    0x00022ddd     0x62e8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
- .debug_line    0x000290c5     0x1274 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
+ .debug_line    0x00002773      0xd58 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/ap.c.obj
+ .debug_line    0x000034cb      0xe79 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/boot/boot.c.obj
+ .debug_line    0x00004344      0xd27 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/cmd_thread.c.obj
+ .debug_line    0x0000506b      0xcbe CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
+ .debug_line    0x00005d29      0xf66 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/process/cmd_boot.c.obj
+ .debug_line    0x00006c8f      0x10d CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
+ .debug_line    0x00006d9c      0x750 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
+ .debug_line    0x000074ec      0x53f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/util.c.obj
+ .debug_line    0x00007a2b      0xf56 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
+ .debug_line    0x00008981     0x11c8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
+ .debug_line    0x00009b49      0xf2d CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
+ .debug_line    0x0000aa76      0xbdc CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/fault.c.obj
+ .debug_line    0x0000b652      0xd53 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/flash.c.obj
+ .debug_line    0x0000c3a5      0xbdb CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/gpio.c.obj
+ .debug_line    0x0000cf80      0xb4f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/led.c.obj
+ .debug_line    0x0000dacf      0xb15 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/log.c.obj
+ .debug_line    0x0000e5e4      0xc43 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/reset.c.obj
+ .debug_line    0x0000f227      0xe59 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/rtc.c.obj
+ .debug_line    0x00010080      0xee1 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi.c.obj
+ .debug_line    0x00010f61     0x1056 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/spi_flash.c.obj
+ .debug_line    0x00011fb7      0xc9f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/swtimer.c.obj
+ .debug_line    0x00012c56      0xfa6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/uart.c.obj
+ .debug_line    0x00013bfc      0xb85 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/hw.c.obj
+ .debug_line    0x00014781      0xc5f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+ .debug_line    0x000153e0      0xd8e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+ .debug_line    0x0001616e     0x11ba CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+ .debug_line    0x00017328      0xd88 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
+ .debug_line    0x000180b0     0x1144 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
+ .debug_line    0x000191f4      0xcfd CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+ .debug_line    0x00019ef1      0xe68 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+ .debug_line    0x0001ad59     0x1353 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+ .debug_line    0x0001c0ac     0x12ca CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+ .debug_line    0x0001d376     0x143f CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc.c.obj
+ .debug_line    0x0001e7b5     0x19bf CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rtc_ex.c.obj
+ .debug_line    0x00020174     0x2ca2 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+ .debug_line    0x00022e16     0x62e8 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+ .debug_line    0x000290fe     0x1274 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/lib/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
 
 .debug_str      0x00000000    0xcc48f
  .debug_str     0x00000000    0xc35d1 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/bsp.c.obj
@@ -14988,25 +14989,25 @@ LOAD c:/work/tools/baram-fw-tools/arm_toolchain/arm_gcc/gcc-arm-none-eabi-10.3-2
                               0x6fe00 (size before relaxing)
  .debug_str     0x000c3bd6      0x385 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/main.c.obj
                               0xc3c0a (size before relaxing)
- .debug_str     0x000c3f5b      0x124 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/ap.c.obj
-                              0xc3d05 (size before relaxing)
- .debug_str     0x000c407f      0x10a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/boot/boot.c.obj
+ .debug_str     0x000c3f5b      0x120 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/ap.c.obj
+                              0xc3d01 (size before relaxing)
+ .debug_str     0x000c407b      0x10a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/boot/boot.c.obj
                               0xc3d52 (size before relaxing)
- .debug_str     0x000c4189      0x1c0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/cmd_thread.c.obj
+ .debug_str     0x000c4185      0x1c0 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/cmd_thread.c.obj
                               0xc3e08 (size before relaxing)
- .debug_str     0x000c4349       0xb6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
+ .debug_str     0x000c4345       0xb6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/driver/cmd_uart.c.obj
                               0xc3cf5 (size before relaxing)
- .debug_str     0x000c43ff      0x30e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/process/cmd_boot.c.obj
+ .debug_str     0x000c43fb      0x30e CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/thread/cmd/process/cmd_boot.c.obj
                               0xc410c (size before relaxing)
- .debug_str     0x000c470d       0x6a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
+ .debug_str     0x000c4709       0x6a CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/bsp/startup/startup_stm32g431xx.s.obj
                                  0xa6 (size before relaxing)
- .debug_str     0x000c4777      0x101 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
+ .debug_str     0x000c4773      0x101 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/qbuffer.c.obj
                                0x815e (size before relaxing)
- .debug_str     0x000c4878       0x99 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/util.c.obj
+ .debug_str     0x000c4874       0x99 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/core/util.c.obj
                                0x810f (size before relaxing)
- .debug_str     0x000c4911       0xf6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
+ .debug_str     0x000c490d       0xf6 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/common/hw/src/mini-printf.c.obj
                               0xc39bb (size before relaxing)
- .debug_str     0x000c4a07      0x415 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
+ .debug_str     0x000c4a03      0x419 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
                               0xc3ef9 (size before relaxing)
  .debug_str     0x000c4e1c      0x1bb CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/cmd.c.obj
                               0xc3c09 (size before relaxing)
@@ -16180,8 +16181,9 @@ buttonEventGetRepeat                              CMakeFiles/stm32g4-fdcan-boot.
 buttonEventInit                                   CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
 buttonGetData                                     CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
 buttonGetName                                     CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
-buttonGetPressed                                  CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
+buttonGetPin                                      CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
                                                   CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/ap/ap.c.obj
+buttonGetPressed                                  CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
 buttonGetPressedCount                             CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
 buttonGetPressedTime                              CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj
 buttonGetReleased                                 CMakeFiles/stm32g4-fdcan-boot.elf.dir/src/hw/driver/button.c.obj

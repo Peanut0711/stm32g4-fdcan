@@ -24,8 +24,9 @@ void apInit(void)
     is_run_fw = false;
   }
 
-  if (buttonGetPressed(HW_BUTTON_CH_BOOT) == true)
+  if (buttonGetPin(HW_BUTTON_CH_BOOT) == true)
   {
+    logPrintf("[  ] button pressed\n");
     is_run_fw = false;
   }
 

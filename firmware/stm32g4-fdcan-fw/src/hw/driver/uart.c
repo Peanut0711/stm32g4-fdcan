@@ -486,20 +486,21 @@ void HAL_UART_MspInit(UART_HandleTypeDef *uartHandle)
 
 void HAL_UART_MspDeInit(UART_HandleTypeDef *uartHandle)
 {
-  // if(uartHandle->Instance==USART1)
-  // {
-  //    /* Peripheral clock disable */
-  //   __HAL_RCC_USART1_CLK_DISABLE();
+  if(uartHandle->Instance==USART1)
+  {
+     /* Peripheral clock disable */
+    __HAL_RCC_USART1_CLK_DISABLE();
 
-  //   /**USART1 GPIO Configuration
-  //   PB6     ------> USART1_TX
-  //   PB7     ------> USART1_RX
-  //   */
-  //   HAL_GPIO_DeInit(GPIOB, GPIO_PIN_6|GPIO_PIN_7);
+    /**USART1 GPIO Configuration
+    PA9     ------> USART1_TX
+    PB7     ------> USART1_RX
+    */
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_9);
+    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_7);
 
-  //   /* USART1 DMA DeInit */
-  //   HAL_DMA_DeInit(uartHandle->hdmarx);
-  // }
+    /* USART1 DMA DeInit */
+    HAL_DMA_DeInit(uartHandle->hdmarx);
+  }
 
   if (uartHandle->Instance == USART2)
   {

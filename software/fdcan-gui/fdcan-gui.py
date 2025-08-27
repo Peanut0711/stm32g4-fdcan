@@ -30,6 +30,21 @@ from configparser import ConfigParser
 
 
 
+# 스캔 모드 설정 (C언어의 #ifdef와 유사한 기능)
+# 모드 1: 모든 COM 포트 표시 (사용자가 직접 선택 가능)
+SCAN_MODE_ALL_PORTS = True  # True: 모든 COM 포트 표시, False: 기존 로직 사용
+
+# 모드 2: FDCAN 장치만 표시 (기존 기능 유지)
+SCAN_MODE_FDCAN_ONLY = False  # True: FDCAN 장치만 표시, False: 모든 장치 표시
+
+# 모드 3: 기존 라디오 버튼 로직 사용 (기본값)
+SCAN_MODE_USE_RADIO = False  # True: 라디오 버튼에 따라 스캔, False: 위 설정 사용
+
+# 스캔 모드 상수 정의
+SCAN_MODE_ALL_PORTS_VAL = "all_ports"
+SCAN_MODE_FDCAN_ONLY_VAL = "fdcan_only"
+SCAN_MODE_USE_RADIO_VAL = "use_radio"
+
 class MainWindow(QMainWindow):
     
   def __init__(self):
@@ -121,8 +136,14 @@ class MainWindow(QMainWindow):
     try:
       self.font_size = int(self.config_item['font_size'])
       self.update_file = self.config_item['update_file']
+      
+      # 스캔 모드 설정 로드
+      scan_mode = self.config_item.get('scan_mode', SCAN_MODE_ALL_PORTS_VAL)
+      self.scan_mode = scan_mode
+      
     except Exception as e:
       print(e)
+      self.scan_mode = SCAN_MODE_ALL_PORTS_VAL
 
   def saveConfig(self):  
     if self.tab_can is not None: 
@@ -132,6 +153,7 @@ class MainWindow(QMainWindow):
 
     self.config_item['font_size'] = str(self.font_size)
     self.config_item['update_file'] = self.update_file
+    self.config_item['scan_mode'] = self.scan_mode
     with open('config.ini', 'w') as configfile:
       self.config.write(configfile)
 
@@ -179,23 +201,73 @@ class MainWindow(QMainWindow):
       # print(str(i) + " \t" + str(i.usb_info()))
       found_device = False
       is_fdcan = False
-      if self.ui.radio_scan_fdcan.isChecked():
-        if i.vid == 0x0483 and i.pid == 0x5740:
-          found_device = True
-      else:
-        if i.vid is not None:
-          found_device = True  
-
+      
+      # FDCAN 장치인지 확인
       if i.vid == 0x0483 and i.pid == 0x5740:
         is_fdcan = True
+      
+      # 스캔 모드에 따른 장치 필터링
+      if self.scan_mode == SCAN_MODE_USE_RADIO_VAL:
+        # 기존 라디오 버튼 로직 사용
+        if self.ui.radio_scan_fdcan.isChecked():
+          if is_fdcan:
+            found_device = True
+        else:
+          if i.vid is not None:
+            found_device = True
+      elif self.scan_mode == SCAN_MODE_FDCAN_ONLY_VAL:
+        # FDCAN 장치만 표시
+        if is_fdcan:
+          found_device = True
+      elif self.scan_mode == SCAN_MODE_ALL_PORTS_VAL:
+        # 모든 COM 포트 표시
+        found_device = True
+      else:
+        # 기본값: 기존 로직 사용
+        if self.ui.radio_scan_fdcan.isChecked():
+          if is_fdcan:
+            found_device = True
+        else:
+          if i.vid is not None:
+            found_device = True
 
       if found_device == True:
         self.is_fdcan.append(is_fdcan)
-        self.device_info.append("S/N : " + str(i.serial_number))
+        
+        # 장치 정보 표시 개선
+        device_desc = i.description if i.description else "Unknown Device"
+        manufacturer = i.manufacturer if i.manufacturer else "Unknown Manufacturer"
+        serial_num = i.serial_number if i.serial_number else "No Serial"
+        
+        if self.scan_mode == SCAN_MODE_ALL_PORTS_VAL:
+          # 모든 포트 모드에서는 더 자세한 정보 표시
+          if is_fdcan:
+            device_info = f"FDCAN Device - {device_desc} (VID:0x{i.vid:04X}, PID:0x{i.pid:04X}, S/N:{serial_num})"
+          else:
+            # None 값 처리
+            vid_str = f"0x{i.vid:04X}" if i.vid is not None else "N/A"
+            pid_str = f"0x{i.pid:04X}" if i.pid is not None else "N/A"
+            device_info = f"COM Port - {device_desc} (VID:{vid_str}, PID:{pid_str}, S/N:{serial_num})"
+        else:
+          # 기존 모드
+          device_info = "S/N : " + str(serial_num)
+        
+        self.device_info.append(device_info)
         self.ui.combo_device.addItem(i.device)      
-        item_tip_str = i.manufacturer
-        if i.description is None:
-          item_tip_str = item_tip_str + ' ' +  i.description
+        
+        # 툴팁 정보 개선
+        item_tip_str = f"{manufacturer} - {device_desc}"
+        if i.vid is not None and i.pid is not None:
+          item_tip_str += f" (VID:0x{i.vid:04X}, PID:0x{i.pid:04X})"
+        elif i.vid is not None:
+          item_tip_str += f" (VID:0x{i.vid:04X}, PID:N/A)"
+        elif i.pid is not None:
+          item_tip_str += f" (VID:N/A, PID:0x{i.pid:04X})"
+        else:
+          item_tip_str += " (VID:N/A, PID:N/A)"
+        if serial_num:
+          item_tip_str += f" [S/N: {serial_num}]"
+          
         self.ui.combo_device.setItemData(self.ui.combo_device.count()-1, item_tip_str, Qt.ToolTipRole)
 
   def onComboDeviceChanged(self, value):
@@ -225,6 +297,19 @@ class MainWindow(QMainWindow):
 
   def btnSysLogClear(self):
     self.syslog.clear()
+
+  def setScanMode(self, mode):
+    """스캔 모드를 설정하고 설정 파일에 저장합니다."""
+    if mode in [SCAN_MODE_ALL_PORTS_VAL, SCAN_MODE_FDCAN_ONLY_VAL, SCAN_MODE_USE_RADIO_VAL]:
+      self.scan_mode = mode
+      self.saveConfig()
+      self.log.printLog(f"스캔 모드가 '{mode}'로 변경되었습니다.")
+    else:
+      self.log.printLog(f"잘못된 스캔 모드: {mode}")
+
+  def getCurrentScanMode(self):
+    """현재 스캔 모드를 반환합니다."""
+    return self.scan_mode
 
   def btnConnect(self):
     if self.ui.combo_device.count() == 0:

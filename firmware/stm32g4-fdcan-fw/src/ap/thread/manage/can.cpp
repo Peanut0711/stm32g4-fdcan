@@ -98,11 +98,16 @@ bool canThreadupdate(void)
       cmdObj()->sendPacket(PKT_TYPE_CAN, CMD_CAN_DATA, OK, buf, index); 
     }
   }
-  if (is_open == true && usbIsOpen() == false)
-  {
-    is_open = false;
-    logPrintf("[  ] canCmdClose()\n");
-  }
+  
+// #ifdef _USE_HW_USB // USB 사용시 활성화 필요
+//   if (is_open == true && usbIsOpen() == false)
+//   {
+//     is_open = false;
+//     logPrintf("[  ] canCmdClose()\n");
+//     canCmdClose(NULL);
+//   }
+// #endif
+
   return true;
 }
 
@@ -144,7 +149,13 @@ bool canCmdClose(cmd_t *p_cmd)
   logPrintf("[  ] canCmdClose()\n");
   is_open = false;
 
-  cmdObj()->sendResp(p_cmd, OK, NULL, 0);
+  canClose(can_ch);
+
+  if (p_cmd != NULL)
+  {
+    cmdObj()->sendResp(p_cmd, OK, NULL, 0);
+  }
+
   return true;
 }
 

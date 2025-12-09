@@ -24,7 +24,7 @@ void apInit(void)
     is_run_fw = false;
   }
 
-  if (buttonGetPin(HW_BUTTON_CH_BOOT) == true)
+  if (gpioPinRead(_DEF_CH1) == true)
   {
     logPrintf("[  ] button pressed\n");
     is_run_fw = false;

@@ -17,7 +17,7 @@ typedef struct
 
 const gpio_tbl_t gpio_tbl[GPIO_MAX_CH] =
     {
-        {GPIOB, GPIO_PIN_0,  _DEF_OUTPUT, GPIO_PIN_SET, GPIO_PIN_RESET,   _DEF_HIGH},      // GPIO_SPI_FLASH_CS
+        {GPIOB, GPIO_PIN_7,  _DEF_INPUT, GPIO_PIN_SET, GPIO_PIN_RESET,   _DEF_HIGH},      // GPIO_MODEL1
     };
 
 

@@ -57,24 +57,10 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define NRST_Pin GPIO_PIN_10
-#define NRST_GPIO_Port GPIOG
-#define LED_485_Pin GPIO_PIN_1
-#define LED_485_GPIO_Port GPIOB
-#define LED_Pin GPIO_PIN_2
-#define LED_GPIO_Port GPIOB
-#define BOOT_BTN_Pin GPIO_PIN_12
-#define BOOT_BTN_GPIO_Port GPIOB
-#define LED_RX_Pin GPIO_PIN_10
-#define LED_RX_GPIO_Port GPIOC
-#define LED_TX_Pin GPIO_PIN_11
-#define LED_TX_GPIO_Port GPIOC
-#define BTN_S1_Pin GPIO_PIN_3
-#define BTN_S1_GPIO_Port GPIOB
-#define BTN_S2_Pin GPIO_PIN_4
-#define BTN_S2_GPIO_Port GPIOB
-#define LED_CAN_Pin GPIO_PIN_5
-#define LED_CAN_GPIO_Port GPIOB
+#define IN_LED_GR_Pin GPIO_PIN_1
+#define IN_LED_GR_GPIO_Port GPIOA
+#define MODEL1_Pin GPIO_PIN_7
+#define MODEL1_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

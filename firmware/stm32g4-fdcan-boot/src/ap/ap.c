@@ -24,9 +24,9 @@ void apInit(void)
     is_run_fw = false;
   }
 
-  if (gpioPinRead(_DEF_CH1) == true)
+  if (gpioPinRead(GPIO_MODEL_3) == true)
   {
-    logPrintf("[  ] button pressed\n");
+    logPrintf("[  ] DIP SW1 is ON\n");
     is_run_fw = false;
   }
 
@@ -88,7 +88,7 @@ void apMain(void)
 
     if (cmdThreadUpdate() == true)
     {
-      ledToggle(HW_LED_CH_TEST_LED);
+      ledToggle(HW_LED_CH_DEBUG_LED);
     }    
   }
 }

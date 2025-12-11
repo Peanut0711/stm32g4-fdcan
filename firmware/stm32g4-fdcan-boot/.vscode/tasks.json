@@ -28,6 +28,15 @@
       "type": "shell",
       "command": "cmake --build build --target clean",
       "problemMatcher": [],
-    }    
+    },
+    {
+      "label": "down-can",
+      "type": "shell",
+      "windows":{
+        "command": "tools/win/fw-loader.exe -b 600 -p com40 -i 1 -f build/stm32g4-fdcan-fw.bin",
+      },
+      
+      "problemMatcher": [],
+    }, 
   ]
 }

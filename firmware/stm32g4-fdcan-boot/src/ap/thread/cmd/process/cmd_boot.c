@@ -38,6 +38,8 @@ typedef struct
 {
   char     fw_name[64];
   uint32_t fw_size;
+  uint8_t  fw_index;
+  uint8_t  reserved[3];
 } boot_begin_t;
 
 

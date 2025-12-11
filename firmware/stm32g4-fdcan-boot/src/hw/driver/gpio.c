@@ -14,11 +14,13 @@ typedef struct
   bool          init_value;
 } gpio_tbl_t;
 
-
 const gpio_tbl_t gpio_tbl[GPIO_MAX_CH] =
-    {
-        {GPIOB, GPIO_PIN_7,  _DEF_INPUT, GPIO_PIN_SET, GPIO_PIN_RESET,   _DEF_HIGH},      // GPIO_MODEL1
-    };
+{
+  {GPIOB, GPIO_PIN_7,  _DEF_INPUT, GPIO_PIN_RESET, GPIO_PIN_SET, _DEF_HIGH}, // GPIO_MODEL_0
+  {GPIOB, GPIO_PIN_6,  _DEF_INPUT, GPIO_PIN_RESET, GPIO_PIN_SET, _DEF_HIGH}, // GPIO_MODEL_1
+  {GPIOB, GPIO_PIN_3,  _DEF_INPUT, GPIO_PIN_RESET, GPIO_PIN_SET, _DEF_HIGH}, // GPIO_MODEL_2
+  {GPIOA, GPIO_PIN_15, _DEF_INPUT, GPIO_PIN_RESET, GPIO_PIN_SET, _DEF_HIGH}, // GPIO_MODEL_3
+};
 
 
 #ifdef _USE_HW_CLI
@@ -26,16 +28,16 @@ static void cliGpio(cli_args_t *args);
 #endif
 
 
-
 bool gpioInit(void)
 {
   bool ret = true;
 
 
-  __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();  
 
 
-  for (int i=0; i<GPIO_MAX_CH; i++)
+  for (int i = 0; i < GPIO_MAX_CH; i++)
   {
     gpioPinMode(i, gpio_tbl[i].mode);
     gpioPinWrite(i, gpio_tbl[i].init_value);
@@ -50,7 +52,7 @@ bool gpioInit(void)
 
 bool gpioPinMode(uint8_t ch, uint8_t mode)
 {
-  bool ret = true;
+  bool             ret             = true;
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
 
@@ -59,7 +61,7 @@ bool gpioPinMode(uint8_t ch, uint8_t mode)
     return false;
   }
 
-  switch(mode)
+  switch (mode)
   {
     case _DEF_INPUT:
       GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -143,9 +145,6 @@ void gpioPinToggle(uint8_t ch)
 }
 
 
-
-
-
 #ifdef _USE_HW_CLI
 void cliGpio(cli_args_t *args)
 {
@@ -154,9 +153,9 @@ void cliGpio(cli_args_t *args)
 
   if (args->argc == 1 && args->isStr(0, "show") == true)
   {
-    while(cliKeepLoop())
+    while (cliKeepLoop())
     {
-      for (int i=0; i<GPIO_MAX_CH; i++)
+      for (int i = 0; i < GPIO_MAX_CH; i++)
       {
         cliPrintf("%d", gpioPinRead(i));
       }
@@ -172,7 +171,7 @@ void cliGpio(cli_args_t *args)
 
     ch = (uint8_t)args->getData(1);
 
-    while(cliKeepLoop())
+    while (cliKeepLoop())
     {
       cliPrintf("gpio read %d : %d\n", ch, gpioPinRead(ch));
       delay(100);
@@ -198,8 +197,8 @@ void cliGpio(cli_args_t *args)
   if (ret != true)
   {
     cliPrintf("gpio show\n");
-    cliPrintf("gpio read ch[0~%d]\n", GPIO_MAX_CH-1);
-    cliPrintf("gpio write ch[0~%d] 0:1\n", GPIO_MAX_CH-1);
+    cliPrintf("gpio read ch[0~%d]\n", GPIO_MAX_CH - 1);
+    cliPrintf("gpio write ch[0~%d] 0:1\n", GPIO_MAX_CH - 1);
   }
 }
 #endif

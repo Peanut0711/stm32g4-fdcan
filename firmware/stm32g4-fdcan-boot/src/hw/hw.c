@@ -44,6 +44,8 @@ bool hwInit(void)
   rtcInit();
   resetInit();
   faultInit();
+  flashInit();
+  canInit();
 
 
   return true;

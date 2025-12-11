@@ -3,6 +3,14 @@
     "swtimer.h": "c",
     "cli.h": "c",
     "button.h": "c",
-    "uart.h": "c"
+    "uart.h": "c",
+    "cmd_can.h": "c",
+    "ap_def.h": "c",
+    "hw.h": "c",
+    "can.h": "c",
+    "util.h": "c",
+    "reset.h": "c",
+    "cmd_uart.h": "c",
+    "hw_info.h": "c"
   }
 }

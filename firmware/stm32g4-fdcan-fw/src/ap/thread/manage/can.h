@@ -1,16 +1,16 @@
-#ifndef CAN_THREAD_H_
-#define CAN_THREAD_H_
+// #ifndef CAN_THREAD_H_
+// #define CAN_THREAD_H_
 
 
-#include "ap_def.h"
+// #include "ap_def.h"
 
-typedef struct
-{
-  bool (*getTxUpdate)(void);
-  bool (*getRxUpdate)(void);
-} can_obj_t;
+// typedef struct
+// {
+//   bool (*getTxUpdate)(void);
+//   bool (*getRxUpdate)(void);
+// } can_obj_t;
 
 
-can_obj_t *canObj(void);
+// can_obj_t *canObj(void);
 
-#endif
+// #endif

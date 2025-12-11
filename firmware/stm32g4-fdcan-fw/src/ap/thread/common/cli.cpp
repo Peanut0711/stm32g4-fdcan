@@ -2,7 +2,6 @@
 
 #include "thread.h"
 #include "common/event.h"
-#include "manage/mode.h"
 
 
 static bool cliThreadInit(void);

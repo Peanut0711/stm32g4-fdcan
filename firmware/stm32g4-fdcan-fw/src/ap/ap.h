@@ -6,8 +6,6 @@
 
 #include "thread.h"
 
-#include "cmd/cmd_thread.h"
-#include "manage/mode.h"
 #include "common/cli.h"
 #include "common/led.h"
 

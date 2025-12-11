@@ -207,7 +207,6 @@ void cliFlash(cli_args_t *args)
   if (args->argc == 1 && args->isStr(0, "info"))
   {
     cliPrintf("flash addr  : 0x%X\n", 0x8000000);
-    cliPrintf("spi   addr  : 0x%X\n", spiFlashGetAddr());
     
     ret = true;
   }

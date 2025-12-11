@@ -28,8 +28,6 @@ bool hwInit(void)
   swtimerInit();
   gpioInit();
   ledInit();
-  spiInit();
-  buttonInit();
   uartInit();
   for (int i=0; i<HW_UART_MAX_CH; i++)
   {
@@ -46,10 +44,7 @@ bool hwInit(void)
   rtcInit();
   resetInit();
   faultInit();
-  spiFlashInit();
-  flashInit();
-  eepromInit();
-  canInit();
+  // canInit();
 
   return true;
 }

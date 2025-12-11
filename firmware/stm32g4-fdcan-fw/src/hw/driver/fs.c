@@ -9,7 +9,6 @@
 
 
 #include "fs.h"
-#include "littlefs/lfs.h"
 #include "flash.h"
 #include "spi_flash.h"
 #include "cli.h"

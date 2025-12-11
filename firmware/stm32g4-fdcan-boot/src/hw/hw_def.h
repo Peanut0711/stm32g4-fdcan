@@ -20,8 +20,8 @@
 
 #define _USE_HW_LED
 #define      HW_LED_MAX_CH          4
-#define      HW_LED_CH_TEST_LED     _DEF_LED1
-#define      HW_LED_CH_DEBUG_LED    _DEF_LED4
+#define      HW_LED_CH_DEBUG_LED    _DEF_LED1
+#define      HW_LED_CH_TEST_LED     _DEF_LED4
 
 #define _USE_HW_UART
 #define      HW_UART_MAX_CH        1
@@ -55,12 +55,12 @@
 
 #define FLASH_SIZE_TAG              0x400
 #define FLASH_SIZE_VER              0x400
-#define FLASH_SIZE_FIRM             (98*1024)
+#define FLASH_SIZE_FIRM             (52*1024)
 
 #define FLASH_ADDR_BOOT             0x08000000
 #define FLASH_ADDR_FIRM             0x08006000
 
-#define FLASH_ADDR_UPDATE           0x08012800
+#define FLASH_ADDR_UPDATE           0x08013000
 
 typedef enum
 {

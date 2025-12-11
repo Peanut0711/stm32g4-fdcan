@@ -1,7 +1,6 @@
 #include "can.h"
 
 #include "thread.h"
-#include "mode.h"
 #include "common/event.h"
 #include "cmd/cmd_thread.h"
 
@@ -60,13 +59,6 @@ bool canThreadinit(void)
 
 bool canThreadupdate(void)
 {
-  if (modeObj()->getMode() == MODE_USB_TO_CLI && modeObj()->getType() == TYPE_USB_UART)
-    is_enable = false;
-  else
-    is_enable = true;
-
-  if (is_enable == true)
-  {
     canUpdate();
     
     if (canMsgAvailable(can_ch))
@@ -97,7 +89,6 @@ bool canThreadupdate(void)
 
       cmdObj()->sendPacket(PKT_TYPE_CAN, CMD_CAN_DATA, OK, buf, index); 
     }
-  }
   
 // #ifdef _USE_HW_USB // USB 사용시 활성화 필요
 //   if (is_open == true && usbIsOpen() == false)

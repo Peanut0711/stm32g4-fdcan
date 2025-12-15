@@ -57,12 +57,12 @@
 
 #define FLASH_SIZE_TAG              0x400
 #define FLASH_SIZE_VER              0x400
-#define FLASH_SIZE_FIRM             (52*1024)
+#define FLASH_SIZE_FIRM             (104*1024)
 
 #define FLASH_ADDR_BOOT             0x08000000
 #define FLASH_ADDR_FIRM             0x08006000
 
-#define FLASH_ADDR_UPDATE           0x08013000
+#define FLASH_ADDR_UPDATE           0x08006000
 
 typedef enum
 {

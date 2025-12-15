@@ -63,7 +63,7 @@ MEMORY
 {
   VECTOR   (rx)    : ORIGIN = 0x08000000,   LENGTH = 1K
   VER      (rx)    : ORIGIN = 0x08000400,   LENGTH = 1K  
-  FLASH    (rx)    : ORIGIN = 0x08000800,   LENGTH = 22K
+  FLASH    (rx)    : ORIGIN = 0x08000800,   LENGTH = 24K-2K
   
   RAM      (xrw)   : ORIGIN = 0x20000000,   LENGTH = 30K
   RAM_BKP  (xrw)   : ORIGIN = 0x20007800,   LENGTH = 2K  

@@ -286,11 +286,11 @@ static void bootFirmVerify(cmd_t *p_cmd)
 
 static void bootFirmUpdate(cmd_t *p_cmd)
 {
-  uint16_t err_code;
+  uint16_t err_code = CMD_OK;
 
-
+#if 0
   err_code = bootUpdateFirm();  
-
+#endif
   cmdSendResp(p_cmd, p_cmd->packet.cmd, err_code, NULL, 0); 
   delay(100);
 
@@ -298,6 +298,7 @@ static void bootFirmUpdate(cmd_t *p_cmd)
   {
     bootJumpFirm();
   }
+
 }
 
 static void bootFirmJump(cmd_t *p_cmd)

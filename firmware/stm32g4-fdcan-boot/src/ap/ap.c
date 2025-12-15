@@ -41,6 +41,7 @@ void apInit(void)
   logPrintf("\n");
 
 
+#if 0
   if (is_update_fw)
   {
     logPrintf("[  ] bootUpdateFirm()\r");
@@ -49,6 +50,7 @@ void apInit(void)
     if (err_code != CMD_OK)
       logPrintf("     err : 0x%04X\n", err_code);
   }
+#endif
 
   if (faultIsReady())
   {

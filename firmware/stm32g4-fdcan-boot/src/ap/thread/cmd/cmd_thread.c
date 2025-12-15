@@ -5,7 +5,7 @@
 
 enum
 {
-  CMD_DRV_USB,
+  CMD_DRV_UART,
   CMD_DRV_CAN,
   CMD_DRV_MAX
 };
@@ -18,10 +18,9 @@ static cmd_driver_t cmd_drvier[CMD_DRIVER_MAX_CH];
 
 bool cmdThreadInit(void)
 {
-
-  cmdUartInitDriver(&cmd_drvier[CMD_DRV_USB], HW_UART_CH_DEBUG, 115200);
-  cmdInit(&cmd[CMD_DRV_USB], &cmd_drvier[CMD_DRV_USB]);
-  cmdOpen(&cmd[CMD_DRV_USB]);
+  cmdUartInitDriver(&cmd_drvier[CMD_DRV_UART], HW_UART_CH_DEBUG, 115200);
+  cmdInit(&cmd[CMD_DRV_UART], &cmd_drvier[CMD_DRV_UART]);
+  cmdOpen(&cmd[CMD_DRV_UART]);
 
   cmdCanInitDriver(&cmd_drvier[CMD_DRV_CAN]);
   cmdInit(&cmd[CMD_DRV_CAN], &cmd_drvier[CMD_DRV_CAN]);
